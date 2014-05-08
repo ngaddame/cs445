@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?><contacts>
+	<contactIdSequenceValue>37</contactIdSequenceValue>
+<contact><contactId>35</contactId><email>g.namrata92@gmail.com</email><phone>3142786242</phone><fax/><dob>04/14/2000</dob>
+<note>This is my favourite conbtact</note>
+<name>
+	<prefix>Mr.</prefix>
+	<firstname>Namrata</firstname>
+	<middlename/><lastname>Gaddameedi</lastname><suffix>Jr.</suffix></name><address><street>424 Clay St</street><pobox>703</pobox><city>San Francisco</city><state>California</state><country>USA</country><zip>94111</zip></address></contact><contact><contactId>36</contactId><email>bgates@mail.com</email><phone>6032345678</phone><fax/><dob>05/24/1964</dob><note>MS</note><name><prefix>Mr.</prefix><firstname>Bill</firstname><middlename/><lastname>Gates</lastname><suffix>Sr.</suffix></name><address><street/><pobox>2345</pobox><city>Las Angles</city><state>California</state><country>USA</country><zip>95564</zip></address></contact></contacts>

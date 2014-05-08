@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<contacts>
+<contact>
+	<name>
+		<prefix>Mr.</prefix>
+		<firstname>Namrata</firstname>
+		<middlename></middlename>
+		<lastname>Gaddameedi</lastname>
+		<suffix>Jr.</suffix>
+	</name>
+	<phone>3142786242</phone>
+	<fax></fax>
+	<email>g.namrata92@gmail.com</email>
+	<note>This is my favourite conbtact</note>
+	<dob>04/14/2000</dob>
+	<address>
+		<street>424 Clay St</street>
+		<pobox>703</pobox>
+		<city>San Francisco</city>
+		<state>California</state>
+		<zip>94111</zip>
+		<country>USA</country>
+	</address>
+</contact>
+</contacts>
