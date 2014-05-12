@@ -43,8 +43,31 @@ public class XMLProcessor {
 	}
 
 	public int delete(int contactId) {
-		// TODO Auto-generated method stub
-		return 0;
+		int status=0;
+		try {
+			//step1: read contacts from master file.
+			File fXmlFile = new File(masterXMLFile);
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(fXmlFile);
+			doc.getDocumentElement().normalize();
+			NodeList contactElements = doc.getElementsByTagName("contact");
+			for (int i = 0; i < contactElements.getLength(); i++) {		 
+				Node contactNode = contactElements.item(i);		 
+		 		if (contactNode.getNodeType() == Node.ELEMENT_NODE) {		 
+					Element eElement = (Element) contactNode;
+					String cId=eElement.getElementsByTagName("contactId").item(0).getTextContent();
+					if(cId!=null && Integer.parseInt(cId)==contactId) {
+						contactNode.getParentNode().removeChild(contactNode);
+						status=1;
+					}
+				}
+			}
+			writeToMaster(doc);
+		} catch (Exception e) {
+	    	e.printStackTrace();
+	    }
+		return status;
 	}
 
 	public int load(String fileName) {
