@@ -51,7 +51,18 @@ public class ContactMgmtSystem {
 	}
 	
 	private void load(String[] args) {
-		System.out.println("*** Load ***");
+	
+		//this method expects only 2 arguments. First argument is command name i.e load and the second argument is file name.
+				//if arguments count is less than 2, return and display error message.
+				if(args.length<2) {
+					System.out.println("** Invalid Command: *** "+"Two arguments required for load command.");
+					System.out.println("   Usage:  "+"cms load filename");
+					System.exit(1);
+				}
+				
+				String fileName=args[1];
+				int count=processor.load(fileName);
+				System.out.println(count+" contact(s) loaded successfully.");
 	}
 
 	private void search(String[] args) {
