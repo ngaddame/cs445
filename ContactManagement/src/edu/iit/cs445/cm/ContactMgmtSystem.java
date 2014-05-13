@@ -1,6 +1,7 @@
 package edu.iit.cs445.cm;
 
 import java.util.Date;
+import java.util.List;
 
 import edu.iit.cs445.cm.util.DateUtil;
 
@@ -57,24 +58,37 @@ public class ContactMgmtSystem {
 	}
 	
 	private void load(String[] args) {
-	
 		//this method expects only 2 arguments. First argument is command name i.e load and the second argument is file name.
-				//if arguments count is less than 2, return and display error message.
-				if(args.length<2) {
-					System.out.println("** Invalid Command: *** "+"Two arguments required for load command.");
-					System.out.println("   Usage:  "+"cms load filename");
-					System.exit(1);
-				}
-				
-				String fileName=args[1];
-				int count=processor.load(fileName);
-				System.out.println(count+" contact(s) loaded successfully.");
+		//if arguments count is less than 2, return and display error message.
+		if(args.length<2) {
+			System.out.println("** Invalid Command: *** "+"Two arguments required for load command.");
+			System.out.println("   Usage:  "+"cms load filename");
+			System.exit(1);
+		}
+		
+		String fileName=args[1];
+		int count=processor.load(fileName);
+		System.out.println(count+" contact(s) loaded successfully.");
 	}
 
 	private void search(String[] args) {
-		System.out.println("*** Search ***");
+		List<Contact> list=processor.search(args[1]);
+		printContacts(list);
 	}
 
+	private void printContacts(List<Contact> list) {
+		int birthdayCount=0;
+		for(int i=0;i<list.size();i++) {
+			Contact contact=list.get(i);
+			System.out.println("ContactId: "+contact.getContactId()+" Name: "+contact.getName().getFirstName()+" "+contact.getName().lastName);
+			if(DateUtil.hasBirthdayInNextSevenDays(contact.getDob())) {
+				birthdayCount++;
+			}
+			System.out.println("\n");
+			System.out.println("Total Contacts: "+list.size());
+			System.out.println("Number of contacts whose birthday is today or in the next seven days: "+birthdayCount);
+		}
+	}
 
 	private void add(String[] args) {
 		System.out.println("*** Add ***");
