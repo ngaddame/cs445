@@ -2,6 +2,7 @@ package edu.iit.cs445.cm;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -26,52 +27,11 @@ import edu.iit.cs445.cm.util.DateUtil;
 
 
 public class XMLProcessor {
-	
-		private static final String masterXMLFile="cms_master.xml";
-		public XMLProcessor() {
-			super();
-		}
-
-	public int getContactIdCurrentVal() {
-		// TODO Auto-generated method stub
-		return 0;
+	private static final String masterXMLFile="cms_master.xml";
+	public XMLProcessor() {
+		super();
 	}
-
-	public Contact getContactById(int contactId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public int delete(int contactId) {
-		int status=0;
-		try {
-			//step1: read contacts from master file.
-			File fXmlFile = new File(masterXMLFile);
-			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-			Document doc = dBuilder.parse(fXmlFile);
-			doc.getDocumentElement().normalize();
-			NodeList contactElements = doc.getElementsByTagName("contact");
-			for (int i = 0; i < contactElements.getLength(); i++) {		 
-				Node contactNode = contactElements.item(i);		 
-		 		if (contactNode.getNodeType() == Node.ELEMENT_NODE) {		 
-					Element eElement = (Element) contactNode;
-					String cId=eElement.getElementsByTagName("contactId").item(0).getTextContent();
-					if(cId!=null && Integer.parseInt(cId)==contactId) {
-						contactNode.getParentNode().removeChild(contactNode);
-						status=1;
-					}
-				}
-			}
-			writeToMaster(doc);
-		} catch (Exception e) {
-	    	e.printStackTrace();
-	    }
-		return status;
-	}
-
 	public int load(String fileName) {
-		
 		try {
 			File fXmlFile = new File(fileName);
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -91,8 +51,8 @@ public class XMLProcessor {
 	    	e.printStackTrace();
 	    	return 0;
 	    }
-
 	}
+	
 	private Contact getContact(Node nNode) {
 		Element eElement = (Element) nNode;
 		
@@ -145,6 +105,177 @@ public class XMLProcessor {
 		}
 		return contact;
 	}
+	
+	public List<Contact> search(String searchKey) {
+		List<Contact> list=new ArrayList<Contact>();
+		try {
+			//step1: read contacts from master file.
+			File fXmlFile = new File(masterXMLFile);
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(fXmlFile);
+			doc.getDocumentElement().normalize();
+			//step2: get contact nodes.
+			NodeList nList = doc.getElementsByTagName("contact");
+			for (int temp = 0; temp < nList.getLength(); temp++) {		 
+				Node nNode = nList.item(temp);	
+				String nodeString=nNode.getTextContent();
+				if(nodeString.toUpperCase().contains(searchKey.toUpperCase())) {
+					list.add(getContact(nNode));
+				}
+				
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public List<Contact> listAll() {
+		List<Contact> list=new ArrayList<Contact>();
+		try {
+			//step1: read contacts from master file.
+			File fXmlFile = new File(masterXMLFile);
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(fXmlFile);
+			doc.getDocumentElement().normalize();
+			
+			//step2: get contact nodes.
+			NodeList nList = doc.getElementsByTagName("contact");
+			for (int temp = 0; temp < nList.getLength(); temp++) {		 
+				Node nNode = nList.item(temp);	
+				list.add(getContact(nNode));
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}	
+	
+	public Contact getContactById(int contactId) {
+		try {
+			File fXmlFile = new File(masterXMLFile);
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(fXmlFile);
+			doc.getDocumentElement().normalize();
+			NodeList nList = doc.getElementsByTagName("contact");
+			for (int temp = 0; temp < nList.getLength(); temp++) {		 
+				Node nNode = nList.item(temp);		 
+		 
+				if (nNode.getNodeType() == Node.ELEMENT_NODE) {		 
+					Contact contact = getContact(nNode);
+					if(contact.getContactId()==contactId) {
+						return contact;
+					}
+				}
+			}
+			
+		} catch (Exception e) {
+	    	e.printStackTrace();
+	    }
+		return null;
+	}
+	
+	
+	public void edit(Contact contact) {
+		try {
+			//step1: read contacts from master file.
+			File fXmlFile = new File(masterXMLFile);
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(fXmlFile);
+			doc.getDocumentElement().normalize();
+			
+			//step2: get contact nodes.
+			NodeList nList = doc.getElementsByTagName("contact");
+			
+			//step2: go through each contact node. 
+			for (int temp = 0; temp < nList.getLength(); temp++) {		 
+				Node nNode = nList.item(temp);		 
+		 
+				if (nNode.getNodeType() == Node.ELEMENT_NODE) {		 
+					Element eElement = (Element) nNode;
+					String contactId=eElement.getElementsByTagName("contactId").item(0).getTextContent();
+					
+					//find the one that matches with contact id. If the contact id matches then update contact info.
+					//if(contact!=null && Integer.parseInt(contactId)==contact.getContactId()) {
+						// Get the staff element by tag name directly
+						Node email = doc.getElementsByTagName("email").item(0);
+						email.setTextContent(contact.getEmail());
+						Node phone = doc.getElementsByTagName("phone").item(0);
+						phone.setTextContent(contact.getPhone());
+						phone.setNodeValue(contact.getPhone());
+						Node fax = doc.getElementsByTagName("fax").item(0);
+						fax.setTextContent(contact.getFax());
+						Node note = doc.getElementsByTagName("note").item(0);
+						note.setTextContent(contact.getNote());
+						Node dob = doc.getElementsByTagName("dob").item(0);
+						dob.setTextContent(DateUtil.convertToString(contact.getDob()));
+						Node firstname = doc.getElementsByTagName("firstname").item(0);
+						firstname.setTextContent(contact.getName().getFirstName());
+						Node prefix = doc.getElementsByTagName("prefix").item(0);
+						prefix.setTextContent(contact.getName().getPrefix());
+						Node middlename = doc.getElementsByTagName("middlename").item(0);
+						middlename.setTextContent(contact.getName().getMiddleName());
+						Node lastname = doc.getElementsByTagName("lastname").item(0);
+						lastname.setTextContent(contact.getName().getLastName());
+						Node suffix = doc.getElementsByTagName("suffix").item(0);
+						suffix.setTextContent(contact.getName().getSufix());
+						Node street = doc.getElementsByTagName("street").item(0);
+						street.setTextContent(contact.getAddress().getStreet());
+						Node pobox = doc.getElementsByTagName("pobox").item(0);
+						pobox.setTextContent(contact.getAddress().getPobox());
+						Node city = doc.getElementsByTagName("city").item(0);
+						city.setTextContent(contact.getAddress().getCity());
+						Node state = doc.getElementsByTagName("state").item(0);
+						state.setTextContent(contact.getAddress().getState());
+						Node zip = doc.getElementsByTagName("zip").item(0);
+						zip.setTextContent(contact.getAddress().getZip());
+						Node country = doc.getElementsByTagName("country").item(0);
+						country.setTextContent(contact.getAddress().getCountry());
+						writeToMaster(doc);
+					//}
+				}
+				writeToMaster(doc);
+			}
+			
+		} catch (Exception e) {
+	    	e.printStackTrace();
+	    }
+	}
+	
+	public int delete(int contactId) {
+		int status=0;
+		try {
+			//step1: read contacts from master file.
+			File fXmlFile = new File(masterXMLFile);
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(fXmlFile);
+			doc.getDocumentElement().normalize();
+			NodeList contactElements = doc.getElementsByTagName("contact");
+			for (int i = 0; i < contactElements.getLength(); i++) {		 
+				Node contactNode = contactElements.item(i);		 
+		 		if (contactNode.getNodeType() == Node.ELEMENT_NODE) {		 
+					Element eElement = (Element) contactNode;
+					String cId=eElement.getElementsByTagName("contactId").item(0).getTextContent();
+					if(cId!=null && Integer.parseInt(cId)==contactId) {
+						contactNode.getParentNode().removeChild(contactNode);
+						status=1;
+					}
+				}
+			}
+			writeToMaster(doc);
+		} catch (Exception e) {
+	    	e.printStackTrace();
+	    }
+		return status;
+	}
+	
 	public void add(Contact contact) {
 		try {
 			//get contact id sequence next value value.
@@ -241,6 +372,7 @@ public class XMLProcessor {
 		   sae.printStackTrace();
 	   }
 	}
+	
 	private int getcontactIdNextVal() {
 		int cId=0;
 		try {
@@ -266,6 +398,23 @@ public class XMLProcessor {
 		return cId;
 	}
 	
+	public int getContactIdCurrentVal() {
+		String contactIdSequenceValue=null;
+		try {
+			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+			Document doc = docBuilder.parse(masterXMLFile);
+			contactIdSequenceValue=doc.getElementsByTagName("contactIdSequenceValue").item(0).getTextContent();			
+	   } catch (ParserConfigurationException pce) {
+		   pce.printStackTrace();
+	   } catch (IOException ioe) {
+		   ioe.printStackTrace();
+	   } catch (SAXException sae) {
+		   sae.printStackTrace();
+	   }
+		return Integer.parseInt(contactIdSequenceValue);
+	}
+	
 	private void writeToMaster(Document doc)
 			throws TransformerFactoryConfigurationError,
 			TransformerConfigurationException, TransformerException {
@@ -279,20 +428,6 @@ public class XMLProcessor {
         transformer.transform(source, result);
         System.out.println("Master XML file updated successfully");
 	}
-	public List<Contact> listAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public List<Contact> search(String string) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void edit(Contact contact) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
+	
 }
+
