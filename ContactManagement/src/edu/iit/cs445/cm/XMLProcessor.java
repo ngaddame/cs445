@@ -42,7 +42,7 @@ public class XMLProcessor {
 			for (int temp = 0; temp < nList.getLength(); temp++) {		 
 				Node nNode = nList.item(temp);		 
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {		 
-					Contact contact = getContact(nNode);
+					Contact contact = extractContactFromXMLNode(nNode);
 					add(contact);
 				}
 			}
@@ -53,7 +53,7 @@ public class XMLProcessor {
 	    }
 	}
 	
-	private Contact getContact(Node nNode) {
+	private Contact extractContactFromXMLNode(Node nNode) {
 		Element eElement = (Element) nNode;
 		
 		String prefix,firstName,middleName,lastName,suffix;prefix=firstName=middleName=lastName=suffix=null;

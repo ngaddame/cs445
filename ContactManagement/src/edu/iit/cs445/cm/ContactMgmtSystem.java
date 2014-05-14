@@ -227,7 +227,20 @@ public class ContactMgmtSystem {
 	}
 		
 	private void view(String[] args) {
-		System.out.println("*** View ***");
+		if(args.length<3 || !args[1].equals("--contactid")) {
+			System.out.println("** Invalid Command: *** ");
+			System.out.println("   Usage:  "+"cms view --contactid <contactId>");
+			System.exit(1);
+		}
+		else {
+			Contact contact=processor.getContactById(Integer.parseInt(args[2]));
+			if(contact!=null) {
+				displayContact(contact);
+			}
+			else {
+				System.out.println("Contact not found.");
+			}
+		}
 	}
 	
 	private void listall(String[] args) {
