@@ -110,7 +110,30 @@ public class ContactMgmtSystem {
 	}
 
 	private void delete(String[] args) {
-		System.out.println("*** Delete ***");
+	
+		if(args.length<3 || !args[1].equals("--contactid")) {
+			System.out.println("** Invalid Command: *** ");
+			System.out.println("   Usage:  "+"cms delete --contactid <contactId>");
+			System.exit(1);
+		}
+		else
+		{
+			int contactId=Integer.parseInt(args[2]);
+			int deletedcontact=processor.delete(contactId);
+			if(deletedcontact==1) {
+				System.out.println("Contact "+contactId+" has been deleted sucessfully.");	
+			}
+			else {
+				Contact contact=processor.getContactById(contactId);
+				if(contact==null) {
+					System.out.println("Contact "+contactId+" not found.");
+				}
+				else {
+					System.out.println("Problem deleting contact "+contactId);
+				}
+			}
+		}
+		
 	}
 
 	private void edit(String[] args) {
