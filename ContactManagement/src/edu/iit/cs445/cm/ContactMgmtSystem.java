@@ -5,11 +5,15 @@ import java.util.List;
 
 import edu.iit.cs445.cm.util.DateUtil;
 
+
+
 public class ContactMgmtSystem {
 	XMLProcessor processor;
 	public ContactMgmtSystem() {
 		processor=new XMLProcessor();
 	}
+	
+	
 	public static void main(String[] args) {
 		if(args.length>0) {
 			try {
@@ -54,9 +58,10 @@ public class ContactMgmtSystem {
 
 
 	private void save(String[] args) {
-		System.out.println("*** Save ***");
+		System.out.println("Save");
+		
+		
 	}
-	
 	private void load(String[] args) {
 		//this method expects only 2 arguments. First argument is command name i.e load and the second argument is file name.
 		//if arguments count is less than 2, return and display error message.
@@ -69,29 +74,34 @@ public class ContactMgmtSystem {
 		String fileName=args[1];
 		int count=processor.load(fileName);
 		System.out.println(count+" contact(s) loaded successfully.");
+		
 	}
-
 	private void search(String[] args) {
 		List<Contact> list=processor.search(args[1]);
 		printContacts(list);
 	}
 
+
 	private void printContacts(List<Contact> list) {
 		int birthdayCount=0;
 		for(int i=0;i<list.size();i++) {
 			Contact contact=list.get(i);
-			System.out.println("ContactId: "+contact.getContactId()+" Name: "+contact.getName().getFirstName()+" "+contact.getName().lastName);
+			String name=contact.getName().getFirstName()+" "+contact.getName().getLastName();
+			//append spaces for display properly.
+			for(int j=name.length();j<25;j++) {
+				name=name+" ";				
+			}
+			System.out.println("ContactId: "+contact.getContactId()+"\tName: "+name+"\tDate Of Birth: "+ DateUtil.convertToString(contact.getDob()));
 			if(DateUtil.hasBirthdayInNextSevenDays(contact.getDob())) {
 				birthdayCount++;
 			}
-			System.out.println("\n");
-			System.out.println("Total Contacts: "+list.size());
-			System.out.println("Number of contacts whose birthday is today or in the next seven days: "+birthdayCount);
 		}
-	}
 
+		System.out.println("\n");
+		System.out.println("Total Contacts: "+list.size());
+		System.out.println("Number of contacts whose birthday is today or in the next seven days: "+birthdayCount);
+	}
 	private void add(String[] args) {
-		System.out.println("*** Add ***");
 		if(args.length<2) {
 			System.out.println("** Invalid Command: *** "+"Two arguments required for load command.");
 			System.out.println("   Required Fields:  firstname");
@@ -106,38 +116,15 @@ public class ContactMgmtSystem {
 			System.out.println("Contact has been added successfully!");
 			displayContact(contact);
 		}
-		
 	}
 
-	private void delete(String[] args) {
+	private void listall(String[] args) {
+		System.out.println("** List of all exisitng contacts ***");
+		List<Contact> list=processor.listAll();
+		printContacts(list);
+	}
 	
-		if(args.length<3 || !args[1].equals("--contactid")) {
-			System.out.println("** Invalid Command: *** ");
-			System.out.println("   Usage:  "+"cms delete --contactid <contactId>");
-			System.exit(1);
-		}
-		else
-		{
-			int contactId=Integer.parseInt(args[2]);
-			int deletedcontact=processor.delete(contactId);
-			if(deletedcontact==1) {
-				System.out.println("Contact "+contactId+" has been deleted sucessfully.");	
-			}
-			else {
-				Contact contact=processor.getContactById(contactId);
-				if(contact==null) {
-					System.out.println("Contact "+contactId+" not found.");
-				}
-				else {
-					System.out.println("Problem deleting contact "+contactId);
-				}
-			}
-		}
-		
-	}
-
 	private void edit(String[] args) {
-		System.out.println("*** Edit ***");
 		if(args.length<2) {
 			System.out.println("** Invalid Command: *** "+"Two arguments required for edit command.");
 			System.out.println("   Usage:  "+"cms edit contact");
@@ -226,6 +213,32 @@ public class ContactMgmtSystem {
 		}
 	}
 		
+	private void delete(String[] args) {
+		if(args.length<3 || !args[1].equals("--contactid")) {
+			System.out.println("** Invalid Command: *** ");
+			System.out.println("   Usage:  "+"cms delete --contactid <contactId>");
+			System.exit(1);
+		}
+		else
+		{
+			int contactId=Integer.parseInt(args[2]);
+			int deletedcontact=processor.delete(contactId);
+			if(deletedcontact==1) {
+				System.out.println("Contact "+contactId+" has been deleted sucessfully.");	
+			}
+			else {
+				Contact contact=processor.getContactById(contactId);
+				if(contact==null) {
+					System.out.println("Contact "+contactId+" not found.");
+				}
+				else {
+					System.out.println("Problem deleting contact "+contactId);
+				}
+			}
+		}
+		
+	}
+
 	private void view(String[] args) {
 		if(args.length<3 || !args[1].equals("--contactid")) {
 			System.out.println("** Invalid Command: *** ");
@@ -242,10 +255,36 @@ public class ContactMgmtSystem {
 			}
 		}
 	}
-	
-	private void listall(String[] args) {
-		System.out.println("*** List All ***");
+
+
+	private void displayContact(Contact contact) {
+		//TODO check nulls for all fields and display empty if it is null.
+		System.out.println("********  CONTACT INFO *********");
+		System.out.println("ContactId: "+contact.getContactId());
+		System.out.println("Prefix: "+contact.getName().getPrefix());
+		System.out.println("FirstName: "+contact.getName().getFirstName());
+		System.out.println("MiddleName: "+(contact.getName().getMiddleName()==null?"":contact.getName().getMiddleName()));
+		System.out.println("LastName: "+contact.getName().getLastName());
+		System.out.println("Suffix: "+contact.getName().getSufix());
+		System.out.println("street:"+contact.getAddress().getStreet());
+		System.out.println("pobox:"+contact.getAddress().getPobox());
+		System.out.println("city:"+contact.getAddress().getCity());
+		System.out.println("state:"+contact.getAddress().getState());
+		System.out.println("zip:"+contact.getAddress().getZip());
+		System.out.println("country:"+contact.getAddress().getCountry());
+		System.out.println("phone:"+contact.getPhone());
+		System.out.println("fax:"+contact.getFax());
+		System.out.println("email:"+contact.getEmail());
+		System.out.println("dob:"+(contact.getDob()==null?"":DateUtil.convertToString(contact.getDob())));
+		System.out.println("note:"+contact.getNote());
+		System.out.println("********************************");
 	}
+	
+	/**
+	 * Builds a Contact object from command line arguments.
+	 * @param args
+	 * @return
+	 */
 	private Contact getContactFromArguments(String[] args) {
 		String firstname=null;
 		String prefix=null;
@@ -344,24 +383,5 @@ public class ContactMgmtSystem {
 		contact.setContactId(contactId);
 		return contact;
 	}
-	private void displayContact(Contact contact) {
-		System.out.println("********  CONTACT INFO *********");
-		System.out.println("ContactId: "+contact.getContactId());
-		System.out.println("Prefix: "+contact.getName().getPrefix());
-		System.out.println("FirstName: "+contact.getName().getFirstName());
-		System.out.println("LastName: "+contact.getName().getLastName());
-		System.out.println("Suffix: "+contact.getName().getSufix());
-		System.out.println("street:"+contact.getAddress().getStreet());
-		System.out.println("pobox:"+contact.getAddress().getPobox());
-		System.out.println("city:"+contact.getAddress().getCity());
-		System.out.println("state:"+contact.getAddress().getState());
-		System.out.println("zip:"+contact.getAddress().getZip());
-		System.out.println("country:"+contact.getAddress().getCountry());
-		System.out.println("phone:"+contact.getPhone());
-		System.out.println("fax:"+contact.getFax());
-		System.out.println("email:"+contact.getEmail());
-		System.out.println("dob:"+(contact.getDob()==null?"":DateUtil.convertToString(contact.getDob())));
-		System.out.println("note:"+contact.getNote());
-		System.out.println("********************************");
-	}
+
 }
