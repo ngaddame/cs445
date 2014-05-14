@@ -138,6 +138,92 @@ public class ContactMgmtSystem {
 
 	private void edit(String[] args) {
 		System.out.println("*** Edit ***");
+		if(args.length<2) {
+			System.out.println("** Invalid Command: *** "+"Two arguments required for edit command.");
+			System.out.println("   Usage:  "+"cms edit contact");
+			System.exit(1);
+		}
+		else
+		{
+			
+			Contact newcontact = getContactFromArguments(args);
+			
+			Contact existingContact=processor.getContactById(newcontact.getContactId());
+			if(existingContact==null) {
+				System.out.println("Invalid contactid "+newcontact.getContactId());
+				return;
+			}
+			//if name in existing contact is null, set Name from new contact.
+			if(existingContact.getAddress()==null) {
+				existingContact.setAddress(newcontact.getAddress());
+			}
+			else if(newcontact.getAddress()!=null) {
+				if(newcontact.getAddress().getStreet()!=null) {
+					existingContact.getAddress().setStreet(newcontact.getAddress().getStreet());
+				}
+				if(newcontact.getAddress().getPobox()!=null) {
+					existingContact.getAddress().setPobox(newcontact.getAddress().getPobox());
+				}
+				if(newcontact.getAddress().getCity()!=null) {
+					existingContact.getAddress().setCity(newcontact.getAddress().getCity());
+				}
+				if(newcontact.getAddress().getState()!=null) {
+					existingContact.getAddress().setState(newcontact.getAddress().getState());
+				}
+				if(newcontact.getAddress().getCountry()!=null) {
+					existingContact.getAddress().setCountry(newcontact.getAddress().getCountry());
+				}
+				if(newcontact.getAddress().getZip()!=null) {
+					existingContact.getAddress().setZip(newcontact.getAddress().getZip());
+				}
+			}
+			
+			if(newcontact.getDob()!=null) {
+				existingContact.setDob(newcontact.getDob());
+			}
+
+			if(newcontact.getEmail()!=null) {
+				existingContact.setEmail(newcontact.getEmail());
+			}
+			
+			if(newcontact.getPhone()!=null) {
+				existingContact.setPhone(newcontact.getPhone());
+			}
+			
+			if(newcontact.getFax()!=null) {
+				existingContact.setFax(newcontact.getFax());
+			}
+			
+			if(newcontact.getNote()!=null) {
+				existingContact.setNote(newcontact.getNote());
+			}
+			
+			//if name in existing contact is null, set Name from new contact.
+			if(existingContact.getName()==null) {
+				existingContact.setName(newcontact.getName());
+			}
+			else if(newcontact.getName()!=null) {
+				if(newcontact.getName().getPrefix()!=null) {
+					existingContact.getName().setPrefix(newcontact.getName().getPrefix());
+				}
+				if(newcontact.getName().getFirstName()!=null) {
+					existingContact.getName().setFirstName(newcontact.getName().getFirstName());
+				}
+				if(newcontact.getName().getMiddleName()!=null) {
+					existingContact.getName().setMiddleName(newcontact.getName().getMiddleName());
+				}
+				if(newcontact.getName().getLastName()!=null) {
+					existingContact.getName().setLastName(newcontact.getName().getLastName());
+				}
+				if(newcontact.getName().getSufix()!=null) {
+					existingContact.getName().setSufix(newcontact.getName().getSufix());
+				}
+			}
+			
+			processor.edit(existingContact);
+			System.out.println("Contact "+existingContact.getContactId()+" has been updated scussfully.\n");
+			displayContact(existingContact);
+		}
 	}
 		
 	private void view(String[] args) {
