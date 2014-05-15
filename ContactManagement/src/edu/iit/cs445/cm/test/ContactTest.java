@@ -2,6 +2,7 @@ package edu.iit.cs445.cm.test;
 
 import edu.iit.cs445.cm.Contact;
 import edu.iit.cs445.cm.XMLProcessor;
+import edu.iit.cs445.cm.util.DateUtil;
 import junit.framework.TestCase;
 
 public class ContactTest extends TestCase {
@@ -54,27 +55,35 @@ public class ContactTest extends TestCase {
 	}
 	
 	public void testEmail() {	
-		//TODO
-		assertEquals("tobodone","TODO");
+		
+		assertEquals("g.namrata92@gmail.com",contact.getEmail());
 	}
 
 	public void testFax() {
 		//TODO
-		assertEquals("tobodone","TODO");
+		assertEquals("",contact.getFax());
 	}
 	
 	public void testDOB() {	
 		//TODO
-		assertEquals("tobodone","TODO");
+		assertEquals("04/14/2000",DateUtil.convertToString(contact.getDob()));
 	}
 	
 	public void testNote() {
 		//TODO
-		assertEquals("tobodone","TODO");
+		assertEquals("This is my favourite conbtact",contact.getNote());
+	}
+	public void testPhone() {
+		//TODO
+		assertEquals("3142786242",contact.getPhone());
 	}
 
 	public void testName() {	
 		//TODO
-		assertEquals("tobodone","TODO");
+		assertEquals("Mr.",contact.getName().getPrefix());
+		assertEquals("Namrata",contact.getName().getFirstName());
+		assertEquals("",contact.getName().getMiddleName());
+		assertEquals("Gaddameedi",contact.getName().getLastName());
+		assertEquals("Jr.",contact.getName().getSufix());
 	}
 }
