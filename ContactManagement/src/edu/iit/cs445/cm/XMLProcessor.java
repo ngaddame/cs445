@@ -42,7 +42,7 @@ public class XMLProcessor {
 			for (int temp = 0; temp < nList.getLength(); temp++) {		 
 				Node nNode = nList.item(temp);		 
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {		 
-					Contact contact = extractContactFromXMLNode(nNode);
+					Contact contact = getContact(nNode);
 					add(contact);
 				}
 			}
@@ -53,7 +53,7 @@ public class XMLProcessor {
 	    }
 	}
 	
-	private Contact extractContactFromXMLNode(Node nNode) {
+	private Contact getContact(Node nNode) {
 		Element eElement = (Element) nNode;
 		
 		String prefix,firstName,middleName,lastName,suffix;prefix=firstName=middleName=lastName=suffix=null;
@@ -123,8 +123,8 @@ public class XMLProcessor {
 				if(nodeString.toUpperCase().contains(searchKey.toUpperCase())) {
 					list.add(getContact(nNode));
 				}
-				
 			}
+			
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -202,43 +202,42 @@ public class XMLProcessor {
 					String contactId=eElement.getElementsByTagName("contactId").item(0).getTextContent();
 					
 					//find the one that matches with contact id. If the contact id matches then update contact info.
-					//if(contact!=null && Integer.parseInt(contactId)==contact.getContactId()) {
-						// Get the staff element by tag name directly
-						Node email = doc.getElementsByTagName("email").item(0);
+					if(contact!=null && Integer.parseInt(contactId)==contact.getContactId()) {
+						Node email = eElement.getElementsByTagName("email").item(0);
 						email.setTextContent(contact.getEmail());
-						Node phone = doc.getElementsByTagName("phone").item(0);
+						Node phone = eElement.getElementsByTagName("phone").item(0);
 						phone.setTextContent(contact.getPhone());
 						phone.setNodeValue(contact.getPhone());
-						Node fax = doc.getElementsByTagName("fax").item(0);
+						Node fax = eElement.getElementsByTagName("fax").item(0);
 						fax.setTextContent(contact.getFax());
-						Node note = doc.getElementsByTagName("note").item(0);
+						Node note = eElement.getElementsByTagName("note").item(0);
 						note.setTextContent(contact.getNote());
-						Node dob = doc.getElementsByTagName("dob").item(0);
+						Node dob = eElement.getElementsByTagName("dob").item(0);
 						dob.setTextContent(DateUtil.convertToString(contact.getDob()));
-						Node firstname = doc.getElementsByTagName("firstname").item(0);
+						Node firstname = eElement.getElementsByTagName("firstname").item(0);
 						firstname.setTextContent(contact.getName().getFirstName());
-						Node prefix = doc.getElementsByTagName("prefix").item(0);
+						Node prefix = eElement.getElementsByTagName("prefix").item(0);
 						prefix.setTextContent(contact.getName().getPrefix());
-						Node middlename = doc.getElementsByTagName("middlename").item(0);
+						Node middlename = eElement.getElementsByTagName("middlename").item(0);
 						middlename.setTextContent(contact.getName().getMiddleName());
-						Node lastname = doc.getElementsByTagName("lastname").item(0);
+						Node lastname = eElement.getElementsByTagName("lastname").item(0);
 						lastname.setTextContent(contact.getName().getLastName());
-						Node suffix = doc.getElementsByTagName("suffix").item(0);
+						Node suffix = eElement.getElementsByTagName("suffix").item(0);
 						suffix.setTextContent(contact.getName().getSufix());
-						Node street = doc.getElementsByTagName("street").item(0);
+						Node street = eElement.getElementsByTagName("street").item(0);
 						street.setTextContent(contact.getAddress().getStreet());
-						Node pobox = doc.getElementsByTagName("pobox").item(0);
+						Node pobox = eElement.getElementsByTagName("pobox").item(0);
 						pobox.setTextContent(contact.getAddress().getPobox());
-						Node city = doc.getElementsByTagName("city").item(0);
+						Node city = eElement.getElementsByTagName("city").item(0);
 						city.setTextContent(contact.getAddress().getCity());
-						Node state = doc.getElementsByTagName("state").item(0);
+						Node state = eElement.getElementsByTagName("state").item(0);
 						state.setTextContent(contact.getAddress().getState());
-						Node zip = doc.getElementsByTagName("zip").item(0);
+						Node zip = eElement.getElementsByTagName("zip").item(0);
 						zip.setTextContent(contact.getAddress().getZip());
-						Node country = doc.getElementsByTagName("country").item(0);
+						Node country = eElement.getElementsByTagName("country").item(0);
 						country.setTextContent(contact.getAddress().getCountry());
-						writeToMaster(doc);
-					//}
+					}
+					writeToMaster(doc);
 				}
 				writeToMaster(doc);
 			}
@@ -426,7 +425,6 @@ public class XMLProcessor {
         StreamResult result = new StreamResult(new File(masterXMLFile));
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
         transformer.transform(source, result);
-        System.out.println("Master XML file updated successfully");
 	}
 	
 }

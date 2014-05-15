@@ -74,7 +74,4 @@ public class Contact  {
 	public void setContactId(Integer contactId) {
 		this.contactId = contactId;
 	}
-	public String toString() {
-		return "ContactId: "+contactId+" Name: "+name.firstName+" "+name.lastName+" Email: "+email+" Phone: "+phone+" Date of birth: "+dob+" Note: "+note;
-	}
 }
