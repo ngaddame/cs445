@@ -1,8 +1,8 @@
 package edu.iit.cs445.cm.test;
 
-import junit.framework.TestCase;
 import edu.iit.cs445.cm.Contact;
 import edu.iit.cs445.cm.XMLProcessor;
+import junit.framework.TestCase;
 
 public class ContactTest extends TestCase {
 	XMLProcessor p;
