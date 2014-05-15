@@ -22,6 +22,9 @@ public class DateUtil {
 	}
 	
 	public static boolean hasBirthdayInNextSevenDays(Date dob) {
+		if(dob==null) {
+			return false;
+		}
 		Calendar todayC=Calendar.getInstance();
 		todayC.set(Calendar.MILLISECOND, 00);
 		todayC.set(Calendar.SECOND, 01);
