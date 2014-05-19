@@ -37,9 +37,6 @@ public class ContactMgmtSystem {
 			    else if("edit".equals(command)) {
 			    	cms.edit(args);
 			    }
-			    else if("save".equals(command)) {
-			    	cms.save(args);
-			    }
 			    else if("view".equals(command)) {
 			    	cms.view(args);
 			    }
@@ -57,11 +54,6 @@ public class ContactMgmtSystem {
 	}	
 
 
-	private void save(String[] args) {
-		System.out.println("Save");
-		
-		
-	}
 	private void load(String[] args) {
 		//this method expects only 2 arguments. First argument is command name i.e load and the second argument is file name.
 		//if arguments count is less than 2, return and display error message.

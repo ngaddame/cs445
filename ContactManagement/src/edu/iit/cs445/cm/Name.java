@@ -8,11 +8,11 @@ public class Name {
 	String sufix;
 	public Name(String prefix,String firstName, String middleName, String lastName, String sufix) {
 		super();
-		this.firstName = firstName;
-		this.middleName = middleName;
-		this.lastName = lastName;
-		this.prefix = prefix;
-		this.sufix = sufix;
+		setPrefix(prefix);
+		setFirstName(firstName);
+		setMiddleName(middleName);
+		setLastName(lastName);
+		setSufix(sufix);
 	}
 	public String getFirstName() {
 		return firstName;

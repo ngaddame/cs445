@@ -41,13 +41,13 @@ public class XMLProcessorTest extends TestCase {
 	public void testListAll() {		
 		p.load(fileName);
 		List<Contact> contacts=p.listAll();
-		assertEquals(1,contacts.size());
+		assertTrue(contacts.size()>=1);
 	}
 	
 	public void testSearchValidContact() {		
 		p.load(fileName);
 		List<Contact> contacts=p.search("Gaddameedi");
-		assertEquals(1,contacts.size());
+		assertTrue(contacts.size()>=1);
 	}
 	
 	public void testSearchInvalidContact() {		
