@@ -65,20 +65,27 @@ public class ContactMgmtSystem {
 	private void load(String[] args) {
 		//this method expects only 2 arguments. First argument is command name i.e load and the second argument is file name.
 		//if arguments count is less than 2, return and display error message.
-		if(args.length<2) {
+		if(args.length<3) {
 			System.out.println("** Invalid Command: *** "+"Two arguments required for load command.");
-			System.out.println("   Usage:  "+"cms load filename");
+			System.out.println("   Usage:  "+"cms load --filename filename");
 			System.exit(1);
 		}
 		
-		String fileName=args[1];
+		String fileName=args[2];
 		int count=processor.load(fileName);
 		System.out.println(count+" contact(s) loaded successfully.");
 		
 	}
 	private void search(String[] args) {
-		List<Contact> list=processor.search(args[1]);
-		printContacts(list);
+		List<Contact> list=processor.search(args[2]);
+		int length=list.size();
+		if(length!=0)
+		{
+			printContacts(list);
+		}
+		else{
+		System.out.println("contact doesn't exist with the specified keyword");
+		}
 	}
 
 
@@ -102,11 +109,11 @@ public class ContactMgmtSystem {
 		System.out.println("Number of contacts whose birthday is today or in the next seven days: "+birthdayCount);
 	}
 	private void add(String[] args) {
-		if(args.length<2) {
+		if(args.length<3) {
 			System.out.println("** Invalid Command: *** "+"Two arguments required for load command.");
 			System.out.println("   Required Fields:  firstname");
 			System.out.println("   Optional Fields:  prefix,middlename,lastname,suffix,street,pobox,city,state,zip,country,phone,fax,email,dob,note");
-			System.out.println("   Usage:  "+"cms add firstname");
+			System.out.println("   Usage:  "+"cms add --firstname firstname --middlename middlename --lastname <lastname> --sufix <sufix> --street street --pobox pobox --city city --state state --zip zip --country country --phone phone --fax fax --email email --dob dob --note note");
 			System.exit(1);
 		}
 		else
@@ -125,9 +132,9 @@ public class ContactMgmtSystem {
 	}
 	
 	private void edit(String[] args) {
-		if(args.length<2) {
+		if(args.length<3) {
 			System.out.println("** Invalid Command: *** "+"Two arguments required for edit command.");
-			System.out.println("   Usage:  "+"cms edit contact");
+			System.out.println("   Usage:  "+"cms edit --contactid <contactId>");
 			System.exit(1);
 		}
 		else
