@@ -15,16 +15,13 @@ public class Contact  {
 	public Contact(Name name, Address address, String phone, String fax,
 			String email, Date dob, String note) {
 		super();
-		this.name = name;
-		this.address = address;
-		this.phone = phone;
-		this.fax = fax;
-		this.email = email;
-		this.dob = dob;
-		this.note = note;
-	}
-	public Contact() {
-		super();
+		setName(name);
+		setAddress(address);
+		setPhone(phone);
+		setEmail(email);
+		setDob(dob);
+		setNote(note);
+		setFax(fax);
 	}
 	public Name getName() {
 		return name;

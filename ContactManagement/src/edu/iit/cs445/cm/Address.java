@@ -9,12 +9,12 @@ public class Address {
 	String country;
 	public Address(String street, String pobox, String city, String state, String zip,String country) {
 		super();
-		this.street = street;
-		this.pobox = pobox;
-		this.city = city;
-		this.state = state;
-		this.country = country;
-		this.zip = zip;
+		setStreet(street);
+		setPobox(pobox);
+		setCity(city);
+		setState(state);
+		setCountry(country);
+		setZip(zip);
 	}
 	public String getStreet() {
 		return street;
