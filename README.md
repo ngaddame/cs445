@@ -1,7 +1,5 @@
-cs445
-=====
-
-OODP
+cs445: OODP
+===========
 
 1. Install git using the command mentioned below
  command:   sudo apt-get install git
@@ -19,20 +17,21 @@ command:    sudo apt-get install openjdk-7-jdk
 5. install ant 
 command:    sudo apt-get install ant
 
-6. run unit test.
-Make sure the cms_master.xml does not contain any contacts. It should have contactId=1.
+6. run ant build to compile and assemple the application code.
+command: ant build
+
+7. run unit test.
 command:    ant test
 
-7. run application.
+8. run application.
 command:    
-ant -Dargs="load --filename load_contacts.xml�
-ant -Dargs="listall�
-ant -Dargs="add --prefix mr. --firstname SAM --middlename MARIA --lastname JOHN --suffix JR. --city CHICAGO --state ILLINOIS --zip 60616 --country USA --phone 123456789 --fax 2345178 --email sam.john@gmail.com --dob 04/05/1889 --note �this is an imp contact� --street s.michigan �pobox 234 --city Chicago --state Illinois --zip 60616 --country USA�
-ant -Dargs="delete --contactid 71 �
-ant -Dargs="edit --contactid 72 --firstname Bil�
-ant -Dargs="view -�contactid 72�
-ant -Dargs="search -�searchkey gadda�
-
+ant -Dargs="load --filename load_contacts.xml"
+ant -Dargs="listall"
+ant -Dargs="add --prefix mr. --firstname SAM --middlename MARIA --lastname JOHN --suffix JR. --city CHICAGO --state ILLINOIS --zip 60616 --country USA --phone 123456789 --fax 2345178 --email sam.john@gmail.com --dob 04/05/1889 --note �this is an imp contact� --street s.michigan �pobox 234 --city Chicago --state Illinois --zip 60616 --country USA 
+ant -Dargs="delete --contactid 71"
+ant -Dargs="edit --contactid 72 --firstname Bill"
+ant -Dargs="view --contactid 72"
+ant -Dargs="search --searchkey gaddameedi"
 
 NOTE: Use single quote to enter space in any argument.
 
