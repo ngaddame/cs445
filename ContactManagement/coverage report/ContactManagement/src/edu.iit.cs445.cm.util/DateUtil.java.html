@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>DateUtil.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">ContactManagement (May 19, 2014 1:27:11 PM)</a> &gt; <a href="../../index.html" class="el_group">ContactManagement</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">edu.iit.cs445.cm.util</a> &gt; <span class="el_source">DateUtil.java</span></div><h1>DateUtil.java</h1><pre class="source lang-java linenums">package edu.iit.cs445.cm.util;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
+<span class="nc" id="L8">public class DateUtil {</span>
+	public static final String DATE_FORMAT = &quot;MM/dd/yyyy&quot;;
+	public static boolean hasBirthdayInNextSevenDays(Date dob) {
+<span class="fc bfc" id="L11" title="All 2 branches covered.">		if(dob==null) {</span>
+<span class="fc" id="L12">			return false;</span>
+		}
+<span class="fc" id="L14">		Calendar todayC=Calendar.getInstance();</span>
+<span class="fc" id="L15">		todayC.set(Calendar.MILLISECOND, 00);</span>
+<span class="fc" id="L16">		todayC.set(Calendar.SECOND, 01);</span>
+<span class="fc" id="L17">		todayC.set(Calendar.MINUTE, 0);</span>
+<span class="fc" id="L18">		todayC.set(Calendar.HOUR_OF_DAY, 0);</span>
+		
+<span class="fc" id="L20">		Calendar dobC=Calendar.getInstance();</span>
+<span class="fc" id="L21">		dobC.setTime(dob);</span>
+<span class="fc" id="L22">		dobC.set(Calendar.YEAR, todayC.get(Calendar.YEAR));</span>
+<span class="fc" id="L23">		dobC.set(Calendar.MILLISECOND, 00);</span>
+<span class="fc" id="L24">		dobC.set(Calendar.SECOND, 01);</span>
+<span class="fc" id="L25">		dobC.set(Calendar.MINUTE, 00);</span>
+<span class="fc" id="L26">		dobC.set(Calendar.HOUR_OF_DAY, 00);</span>
+		
+<span class="fc" id="L28">		Calendar sevenDaysC=Calendar.getInstance();</span>
+<span class="fc" id="L29">		sevenDaysC.set(Calendar.MILLISECOND, 999);</span>
+<span class="fc" id="L30">		sevenDaysC.set(Calendar.SECOND, 59);</span>
+<span class="fc" id="L31">		sevenDaysC.set(Calendar.MINUTE, 59);</span>
+<span class="fc" id="L32">		sevenDaysC.set(Calendar.HOUR_OF_DAY, 23);</span>
+<span class="fc" id="L33">		sevenDaysC.add(Calendar.DATE,7);</span>
+		
+<span class="fc bfc" id="L35" title="All 4 branches covered.">		boolean dobMatch=dobC.getTime().getTime() &gt;= todayC.getTime().getTime() &amp;&amp; dobC.getTime().getTime() &lt;= sevenDaysC.getTime().getTime();</span>
+<span class="fc" id="L36">		return dobMatch;</span>
+	}
+	public static Date convertToDate(String dateString) {
+		try {
+<span class="fc" id="L40">			SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT, Locale.US);</span>
+<span class="fc" id="L41">			return sdf.parse(dateString);</span>
+<span class="nc" id="L42">		} catch (Exception e) {</span>
+<span class="nc" id="L43">			return null;</span>
+		}
+	}
+
+	public static String convertToString(Date date) {
+		try {
+<span class="fc" id="L49">			SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT, Locale.US);</span>
+<span class="fc" id="L50">			return sdf.format(date);</span>
+<span class="nc" id="L51">		} catch (Exception e) {</span>
+<span class="nc" id="L52">			return null;</span>
+		}
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.1.201405082137</span>ContactManagement (May 19, 2014 1:27:11 PM)</div></body></html>

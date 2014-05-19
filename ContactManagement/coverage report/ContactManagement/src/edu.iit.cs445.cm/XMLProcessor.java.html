@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>XMLProcessor.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">ContactManagement (May 19, 2014 1:27:11 PM)</a> &gt; <a href="../../index.html" class="el_group">ContactManagement</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">edu.iit.cs445.cm</a> &gt; <span class="el_source">XMLProcessor.java</span></div><h1>XMLProcessor.java</h1><pre class="source lang-java linenums">package edu.iit.cs445.cm;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.TransformerFactoryConfigurationError;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import edu.iit.cs445.cm.util.DateUtil;
+
+
+public class XMLProcessor {
+	private static final String masterXMLFile=&quot;cms_master.xml&quot;;
+	public XMLProcessor() {
+<span class="fc" id="L32">		super();</span>
+<span class="fc" id="L33">	}</span>
+	public int load(String fileName) {
+		try {
+<span class="fc" id="L36">			File fXmlFile = new File(fileName);</span>
+<span class="fc" id="L37">			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();</span>
+<span class="fc" id="L38">			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();</span>
+<span class="fc" id="L39">			Document doc = dBuilder.parse(fXmlFile);</span>
+<span class="fc" id="L40">			doc.getDocumentElement().normalize();</span>
+<span class="fc" id="L41">			NodeList nList = doc.getElementsByTagName(&quot;contact&quot;);</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">			for (int temp = 0; temp &lt; nList.getLength(); temp++) {		 </span>
+<span class="fc" id="L43">				Node nNode = nList.item(temp);		 </span>
+<span class="pc bpc" id="L44" title="1 of 2 branches missed.">				if (nNode.getNodeType() == Node.ELEMENT_NODE) {		 </span>
+<span class="fc" id="L45">					Contact contact = getContact(nNode);</span>
+<span class="fc" id="L46">					add(contact);</span>
+				}
+			}
+<span class="fc" id="L49">			return nList.getLength();</span>
+<span class="nc" id="L50">		} catch (Exception e) {</span>
+<span class="nc" id="L51">	    	e.printStackTrace();</span>
+<span class="nc" id="L52">	    	return 0;</span>
+	    }
+	}
+	
+	private Contact getContact(Node nNode) {
+<span class="fc" id="L57">		Element eElement = (Element) nNode;</span>
+		
+<span class="fc" id="L59">		String prefix,firstName,middleName,lastName,suffix;prefix=firstName=middleName=lastName=suffix=null;</span>
+<span class="fc" id="L60">		String email,phone,fax,note,dob;email=phone=fax=note=dob=null;</span>
+<span class="fc" id="L61">		String pobox,street,city,state,zip,country;pobox=street=city=state=zip=country=null;		</span>
+		
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">		if(eElement.getElementsByTagName(&quot;prefix&quot;).item(0)!=null)</span>
+<span class="fc" id="L64">			prefix=eElement.getElementsByTagName(&quot;prefix&quot;).item(0).getTextContent();</span>
+<span class="pc bpc" id="L65" title="1 of 2 branches missed.">		if(eElement.getElementsByTagName(&quot;firstname&quot;).item(0)!=null)</span>
+<span class="fc" id="L66">			firstName=eElement.getElementsByTagName(&quot;firstname&quot;).item(0).getTextContent();</span>
+<span class="pc bpc" id="L67" title="1 of 2 branches missed.">		if(eElement.getElementsByTagName(&quot;middlename&quot;).item(0)!=null)</span>
+<span class="fc" id="L68">			middleName= eElement.getElementsByTagName(&quot;middlename&quot;).item(0).getTextContent();</span>
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">		if(eElement.getElementsByTagName(&quot;lastname&quot;).item(0)!=null)</span>
+<span class="fc" id="L70">			lastName= eElement.getElementsByTagName(&quot;lastname&quot;).item(0).getTextContent();</span>
+<span class="pc bpc" id="L71" title="1 of 2 branches missed.">		if(eElement.getElementsByTagName(&quot;suffix&quot;).item(0)!=null)</span>
+<span class="fc" id="L72">			suffix= eElement.getElementsByTagName(&quot;suffix&quot;).item(0).getTextContent();</span>
+		
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">		if(eElement.getElementsByTagName(&quot;email&quot;).item(0)!=null)</span>
+<span class="fc" id="L75">			email=eElement.getElementsByTagName(&quot;email&quot;).item(0).getTextContent();</span>
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">		if(eElement.getElementsByTagName(&quot;phone&quot;).item(0)!=null)</span>
+<span class="fc" id="L77">			phone= eElement.getElementsByTagName(&quot;phone&quot;).item(0).getTextContent();</span>
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">		if(eElement.getElementsByTagName(&quot;fax&quot;).item(0)!=null)</span>
+<span class="fc" id="L79">			fax= eElement.getElementsByTagName(&quot;fax&quot;).item(0).getTextContent();</span>
+<span class="pc bpc" id="L80" title="1 of 2 branches missed.">		if(eElement.getElementsByTagName(&quot;note&quot;).item(0)!=null)</span>
+<span class="fc" id="L81">			note= eElement.getElementsByTagName(&quot;note&quot;).item(0).getTextContent();</span>
+<span class="pc bpc" id="L82" title="1 of 2 branches missed.">		if(eElement.getElementsByTagName(&quot;dob&quot;).item(0)!=null)</span>
+<span class="fc" id="L83">			dob= eElement.getElementsByTagName(&quot;dob&quot;).item(0).getTextContent();</span>
+		
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">		if(eElement.getElementsByTagName(&quot;pobox&quot;).item(0)!=null)</span>
+<span class="fc" id="L86">			pobox= eElement.getElementsByTagName(&quot;pobox&quot;).item(0).getTextContent();</span>
+<span class="pc bpc" id="L87" title="1 of 2 branches missed.">		if(eElement.getElementsByTagName(&quot;street&quot;).item(0)!=null)</span>
+<span class="fc" id="L88">			street= eElement.getElementsByTagName(&quot;street&quot;).item(0).getTextContent();</span>
+<span class="pc bpc" id="L89" title="1 of 2 branches missed.">		if(eElement.getElementsByTagName(&quot;city&quot;).item(0)!=null)</span>
+<span class="fc" id="L90">			city= eElement.getElementsByTagName(&quot;city&quot;).item(0).getTextContent();</span>
+<span class="pc bpc" id="L91" title="1 of 2 branches missed.">		if(eElement.getElementsByTagName(&quot;state&quot;).item(0)!=null)</span>
+<span class="fc" id="L92">			state= eElement.getElementsByTagName(&quot;state&quot;).item(0).getTextContent();</span>
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">		if(eElement.getElementsByTagName(&quot;zip&quot;).item(0)!=null)</span>
+<span class="fc" id="L94">			zip= eElement.getElementsByTagName(&quot;zip&quot;).item(0).getTextContent();</span>
+<span class="pc bpc" id="L95" title="1 of 2 branches missed.">		if(eElement.getElementsByTagName(&quot;country&quot;).item(0)!=null)</span>
+<span class="fc" id="L96">			country= eElement.getElementsByTagName(&quot;country&quot;).item(0).getTextContent();</span>
+		
+<span class="fc" id="L98">		Name name=new Name(prefix, firstName, middleName, lastName, suffix);</span>
+<span class="fc" id="L99">		Address address=new Address(street, pobox, city, state, zip, country);</span>
+<span class="fc" id="L100">		Contact contact=new Contact(name, address, phone, fax, email, DateUtil.convertToDate(dob), note);</span>
+		
+<span class="fc" id="L102">		Node id = eElement.getElementsByTagName(&quot;contactId&quot;).item(0);</span>
+<span class="fc bfc" id="L103" title="All 2 branches covered.">		if(id!=null) {</span>
+<span class="fc" id="L104">			contact.setContactId(Integer.parseInt(id.getTextContent()));</span>
+		}
+<span class="fc" id="L106">		return contact;</span>
+	}
+	
+	public List&lt;Contact&gt; search(String searchKey) {
+<span class="fc" id="L110">		List&lt;Contact&gt; list=new ArrayList&lt;Contact&gt;();</span>
+		try {
+			//step1: read contacts from master file.
+<span class="fc" id="L113">			File fXmlFile = new File(masterXMLFile);</span>
+<span class="fc" id="L114">			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();</span>
+<span class="fc" id="L115">			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();</span>
+<span class="fc" id="L116">			Document doc = dBuilder.parse(fXmlFile);</span>
+<span class="fc" id="L117">			doc.getDocumentElement().normalize();</span>
+			//step2: get contact nodes.
+<span class="fc" id="L119">			NodeList nList = doc.getElementsByTagName(&quot;contact&quot;);</span>
+<span class="fc bfc" id="L120" title="All 2 branches covered.">			for (int temp = 0; temp &lt; nList.getLength(); temp++) {		 </span>
+<span class="fc" id="L121">				Node nNode = nList.item(temp);	</span>
+<span class="fc" id="L122">				String nodeString=nNode.getTextContent();</span>
+<span class="fc bfc" id="L123" title="All 2 branches covered.">				if(nodeString.toUpperCase().contains(searchKey.toUpperCase())) {</span>
+<span class="fc" id="L124">					list.add(getContact(nNode));</span>
+				}
+			}
+			
+<span class="fc" id="L128">		}</span>
+<span class="nc" id="L129">		catch(Exception e) {</span>
+<span class="nc" id="L130">			e.printStackTrace();</span>
+		}
+<span class="fc" id="L132">		return list;</span>
+	}
+	
+	public List&lt;Contact&gt; listAll() {
+<span class="fc" id="L136">		List&lt;Contact&gt; list=new ArrayList&lt;Contact&gt;();</span>
+		try {
+			//step1: read contacts from master file.
+<span class="fc" id="L139">			File fXmlFile = new File(masterXMLFile);</span>
+<span class="fc" id="L140">			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();</span>
+<span class="fc" id="L141">			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();</span>
+<span class="fc" id="L142">			Document doc = dBuilder.parse(fXmlFile);</span>
+<span class="fc" id="L143">			doc.getDocumentElement().normalize();</span>
+			
+			//step2: get contact nodes.
+<span class="fc" id="L146">			NodeList nList = doc.getElementsByTagName(&quot;contact&quot;);</span>
+<span class="fc bfc" id="L147" title="All 2 branches covered.">			for (int temp = 0; temp &lt; nList.getLength(); temp++) {		 </span>
+<span class="fc" id="L148">				Node nNode = nList.item(temp);	</span>
+<span class="fc" id="L149">				list.add(getContact(nNode));</span>
+			}
+<span class="fc" id="L151">		}</span>
+<span class="nc" id="L152">		catch(Exception e) {</span>
+<span class="nc" id="L153">			e.printStackTrace();</span>
+		}
+<span class="fc" id="L155">		return list;</span>
+	}	
+	
+	public Contact getContactById(int contactId) {
+		try {
+<span class="fc" id="L160">			File fXmlFile = new File(masterXMLFile);</span>
+<span class="fc" id="L161">			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();</span>
+<span class="fc" id="L162">			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();</span>
+<span class="fc" id="L163">			Document doc = dBuilder.parse(fXmlFile);</span>
+<span class="fc" id="L164">			doc.getDocumentElement().normalize();</span>
+<span class="fc" id="L165">			NodeList nList = doc.getElementsByTagName(&quot;contact&quot;);</span>
+<span class="fc bfc" id="L166" title="All 2 branches covered.">			for (int temp = 0; temp &lt; nList.getLength(); temp++) {		 </span>
+<span class="fc" id="L167">				Node nNode = nList.item(temp);		 </span>
+		 
+<span class="pc bpc" id="L169" title="1 of 2 branches missed.">				if (nNode.getNodeType() == Node.ELEMENT_NODE) {		 </span>
+<span class="fc" id="L170">					Contact contact = getContact(nNode);</span>
+<span class="fc bfc" id="L171" title="All 2 branches covered.">					if(contact.getContactId()==contactId) {</span>
+<span class="fc" id="L172">						return contact;</span>
+					}
+				}
+			}
+			
+<span class="pc" id="L177">		} catch (Exception e) {</span>
+<span class="nc" id="L178">	    	e.printStackTrace();</span>
+	    }
+<span class="fc" id="L180">		return null;</span>
+	}
+	
+	
+	public void edit(Contact contact) {
+		try {
+			//step1: read contacts from master file.
+<span class="fc" id="L187">			File fXmlFile = new File(masterXMLFile);</span>
+<span class="fc" id="L188">			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();</span>
+<span class="fc" id="L189">			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();</span>
+<span class="fc" id="L190">			Document doc = dBuilder.parse(fXmlFile);</span>
+<span class="fc" id="L191">			doc.getDocumentElement().normalize();</span>
+			
+			//step2: get contact nodes.
+<span class="fc" id="L194">			NodeList nList = doc.getElementsByTagName(&quot;contact&quot;);</span>
+			
+			//step2: go through each contact node. 
+<span class="fc bfc" id="L197" title="All 2 branches covered.">			for (int temp = 0; temp &lt; nList.getLength(); temp++) {		 </span>
+<span class="fc" id="L198">				Node nNode = nList.item(temp);		 </span>
+		 
+<span class="pc bpc" id="L200" title="1 of 2 branches missed.">				if (nNode.getNodeType() == Node.ELEMENT_NODE) {		 </span>
+<span class="fc" id="L201">					Element eElement = (Element) nNode;</span>
+<span class="fc" id="L202">					String contactId=eElement.getElementsByTagName(&quot;contactId&quot;).item(0).getTextContent();</span>
+					
+					//find the one that matches with contact id. If the contact id matches then update contact info.
+<span class="pc bpc" id="L205" title="1 of 4 branches missed.">					if(contact!=null &amp;&amp; Integer.parseInt(contactId)==contact.getContactId()) {</span>
+<span class="fc" id="L206">						Node email = eElement.getElementsByTagName(&quot;email&quot;).item(0);</span>
+<span class="fc" id="L207">						email.setTextContent(contact.getEmail());</span>
+<span class="fc" id="L208">						Node phone = eElement.getElementsByTagName(&quot;phone&quot;).item(0);</span>
+<span class="fc" id="L209">						phone.setTextContent(contact.getPhone());</span>
+<span class="fc" id="L210">						phone.setNodeValue(contact.getPhone());</span>
+<span class="fc" id="L211">						Node fax = eElement.getElementsByTagName(&quot;fax&quot;).item(0);</span>
+<span class="fc" id="L212">						fax.setTextContent(contact.getFax());</span>
+<span class="fc" id="L213">						Node note = eElement.getElementsByTagName(&quot;note&quot;).item(0);</span>
+<span class="fc" id="L214">						note.setTextContent(contact.getNote());</span>
+<span class="fc" id="L215">						Node dob = eElement.getElementsByTagName(&quot;dob&quot;).item(0);</span>
+<span class="fc" id="L216">						dob.setTextContent(DateUtil.convertToString(contact.getDob()));</span>
+<span class="fc" id="L217">						Node firstname = eElement.getElementsByTagName(&quot;firstname&quot;).item(0);</span>
+<span class="fc" id="L218">						firstname.setTextContent(contact.getName().getFirstName());</span>
+<span class="fc" id="L219">						Node prefix = eElement.getElementsByTagName(&quot;prefix&quot;).item(0);</span>
+<span class="fc" id="L220">						prefix.setTextContent(contact.getName().getPrefix());</span>
+<span class="fc" id="L221">						Node middlename = eElement.getElementsByTagName(&quot;middlename&quot;).item(0);</span>
+<span class="fc" id="L222">						middlename.setTextContent(contact.getName().getMiddleName());</span>
+<span class="fc" id="L223">						Node lastname = eElement.getElementsByTagName(&quot;lastname&quot;).item(0);</span>
+<span class="fc" id="L224">						lastname.setTextContent(contact.getName().getLastName());</span>
+<span class="fc" id="L225">						Node suffix = eElement.getElementsByTagName(&quot;suffix&quot;).item(0);</span>
+<span class="fc" id="L226">						suffix.setTextContent(contact.getName().getSufix());</span>
+<span class="fc" id="L227">						Node street = eElement.getElementsByTagName(&quot;street&quot;).item(0);</span>
+<span class="fc" id="L228">						street.setTextContent(contact.getAddress().getStreet());</span>
+<span class="fc" id="L229">						Node pobox = eElement.getElementsByTagName(&quot;pobox&quot;).item(0);</span>
+<span class="fc" id="L230">						pobox.setTextContent(contact.getAddress().getPobox());</span>
+<span class="fc" id="L231">						Node city = eElement.getElementsByTagName(&quot;city&quot;).item(0);</span>
+<span class="fc" id="L232">						city.setTextContent(contact.getAddress().getCity());</span>
+<span class="fc" id="L233">						Node state = eElement.getElementsByTagName(&quot;state&quot;).item(0);</span>
+<span class="fc" id="L234">						state.setTextContent(contact.getAddress().getState());</span>
+<span class="fc" id="L235">						Node zip = eElement.getElementsByTagName(&quot;zip&quot;).item(0);</span>
+<span class="fc" id="L236">						zip.setTextContent(contact.getAddress().getZip());</span>
+<span class="fc" id="L237">						Node country = eElement.getElementsByTagName(&quot;country&quot;).item(0);</span>
+<span class="fc" id="L238">						country.setTextContent(contact.getAddress().getCountry());</span>
+					}
+<span class="fc" id="L240">					writeToMaster(doc);</span>
+				}
+<span class="fc" id="L242">				writeToMaster(doc);</span>
+			}
+			
+<span class="pc" id="L245">		} catch (Exception e) {</span>
+<span class="nc" id="L246">	    	e.printStackTrace();</span>
+	    }
+<span class="fc" id="L248">	}</span>
+	
+	public int delete(int contactId) {
+<span class="fc" id="L251">		int status=0;</span>
+		try {
+			//step1: read contacts from master file.
+<span class="fc" id="L254">			File fXmlFile = new File(masterXMLFile);</span>
+<span class="fc" id="L255">			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();</span>
+<span class="fc" id="L256">			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();</span>
+<span class="fc" id="L257">			Document doc = dBuilder.parse(fXmlFile);</span>
+<span class="fc" id="L258">			doc.getDocumentElement().normalize();</span>
+<span class="fc" id="L259">			NodeList contactElements = doc.getElementsByTagName(&quot;contact&quot;);</span>
+<span class="fc bfc" id="L260" title="All 2 branches covered.">			for (int i = 0; i &lt; contactElements.getLength(); i++) {		 </span>
+<span class="fc" id="L261">				Node contactNode = contactElements.item(i);		 </span>
+<span class="pc bpc" id="L262" title="1 of 2 branches missed.">		 		if (contactNode.getNodeType() == Node.ELEMENT_NODE) {		 </span>
+<span class="fc" id="L263">					Element eElement = (Element) contactNode;</span>
+<span class="fc" id="L264">					String cId=eElement.getElementsByTagName(&quot;contactId&quot;).item(0).getTextContent();</span>
+<span class="pc bpc" id="L265" title="1 of 4 branches missed.">					if(cId!=null &amp;&amp; Integer.parseInt(cId)==contactId) {</span>
+<span class="fc" id="L266">						contactNode.getParentNode().removeChild(contactNode);</span>
+<span class="fc" id="L267">						status=1;</span>
+					}
+				}
+			}
+<span class="fc" id="L271">			writeToMaster(doc);</span>
+<span class="pc" id="L272">		} catch (Exception e) {</span>
+<span class="nc" id="L273">	    	e.printStackTrace();</span>
+	    }
+<span class="fc" id="L275">		return status;</span>
+	}
+	
+	public void add(Contact contact) {
+		try {
+			//get contact id sequence next value value.
+<span class="fc" id="L281">			int cId=getcontactIdNextVal();</span>
+<span class="fc" id="L282">			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();</span>
+<span class="fc" id="L283">			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();</span>
+<span class="fc" id="L284">			Document doc = docBuilder.parse(masterXMLFile);</span>
+	 
+<span class="fc" id="L286">			Node contacts = doc.getElementsByTagName(&quot;contacts&quot;).item(0);</span>
+<span class="fc" id="L287">			Element contactNode = doc.createElement(&quot;contact&quot;);</span>
+<span class="fc" id="L288">			Element contactId = doc.createElement(&quot;contactId&quot;);</span>
+<span class="fc" id="L289">			contactId.appendChild(doc.createTextNode(String.valueOf(cId)));</span>
+<span class="fc" id="L290">			contactNode.appendChild(contactId);</span>
+<span class="fc" id="L291">			contact.setContactId(cId);</span>
+			
+<span class="fc" id="L293">			Element email = doc.createElement(&quot;email&quot;);</span>
+<span class="fc" id="L294">			email.appendChild(doc.createTextNode(contact.getEmail()));</span>
+<span class="fc" id="L295">			contactNode.appendChild(email);</span>
+			
+<span class="fc" id="L297">			Element phone = doc.createElement(&quot;phone&quot;);</span>
+<span class="fc" id="L298">			phone.appendChild(doc.createTextNode(contact.getPhone()));</span>
+<span class="fc" id="L299">			contactNode.appendChild(phone);</span>
+
+<span class="fc" id="L301">			Element fax = doc.createElement(&quot;fax&quot;);</span>
+<span class="fc" id="L302">			fax.appendChild(doc.createTextNode(contact.getFax()));</span>
+<span class="fc" id="L303">			contactNode.appendChild(fax);</span>
+
+<span class="fc" id="L305">			Element dob = doc.createElement(&quot;dob&quot;);</span>
+<span class="fc" id="L306">			dob.appendChild(doc.createTextNode(DateUtil.convertToString(contact.getDob())));</span>
+<span class="fc" id="L307">			contactNode.appendChild(dob);</span>
+			
+<span class="fc" id="L309">			Element note = doc.createElement(&quot;note&quot;);</span>
+<span class="fc" id="L310">			note.appendChild(doc.createTextNode(contact.getNote()));</span>
+<span class="fc" id="L311">			contactNode.appendChild(note);</span>
+			
+<span class="fc" id="L313">			Element name = doc.createElement(&quot;name&quot;);</span>
+<span class="fc" id="L314">			Element prefix = doc.createElement(&quot;prefix&quot;);</span>
+<span class="fc" id="L315">			prefix.appendChild(doc.createTextNode(contact.getName().getPrefix()));</span>
+<span class="fc" id="L316">			name.appendChild(prefix);</span>
+			
+<span class="fc" id="L318">			Element firstname = doc.createElement(&quot;firstname&quot;);</span>
+<span class="fc" id="L319">			firstname.appendChild(doc.createTextNode(contact.getName().getFirstName()));</span>
+<span class="fc" id="L320">			name.appendChild(firstname);</span>
+			
+<span class="fc" id="L322">			Element middlename = doc.createElement(&quot;middlename&quot;);</span>
+<span class="fc" id="L323">			middlename.appendChild(doc.createTextNode(contact.getName().getMiddleName()));</span>
+<span class="fc" id="L324">			name.appendChild(middlename);</span>
+			
+<span class="fc" id="L326">			Element lastname = doc.createElement(&quot;lastname&quot;);</span>
+<span class="fc" id="L327">			lastname.appendChild(doc.createTextNode(contact.getName().getLastName()));</span>
+<span class="fc" id="L328">			name.appendChild(lastname);</span>
+			
+<span class="fc" id="L330">			Element suffix = doc.createElement(&quot;suffix&quot;);</span>
+<span class="fc" id="L331">			suffix.appendChild(doc.createTextNode(contact.getName().getSufix()));</span>
+<span class="fc" id="L332">			name.appendChild(suffix);</span>
+			
+<span class="fc" id="L334">			contactNode.appendChild(name);</span>
+			
+<span class="fc" id="L336">			Element address = doc.createElement(&quot;address&quot;);</span>
+<span class="fc" id="L337">			Element street = doc.createElement(&quot;street&quot;);</span>
+<span class="fc" id="L338">			street.appendChild(doc.createTextNode(contact.getAddress().getStreet()));</span>
+<span class="fc" id="L339">			address.appendChild(street);</span>
+			
+<span class="fc" id="L341">			Element pobox = doc.createElement(&quot;pobox&quot;);</span>
+<span class="fc" id="L342">			pobox.appendChild(doc.createTextNode(contact.getAddress().getPobox()));</span>
+<span class="fc" id="L343">			address.appendChild(pobox);</span>
+			
+<span class="fc" id="L345">			Element city= doc.createElement(&quot;city&quot;);</span>
+<span class="fc" id="L346">			city.appendChild(doc.createTextNode(contact.getAddress().getCity()));</span>
+<span class="fc" id="L347">			address.appendChild(city);</span>
+			
+<span class="fc" id="L349">			Element state= doc.createElement(&quot;state&quot;);</span>
+<span class="fc" id="L350">			state.appendChild(doc.createTextNode(contact.getAddress().getState()));</span>
+<span class="fc" id="L351">			address.appendChild(state);</span>
+			
+<span class="fc" id="L353">			Element country= doc.createElement(&quot;country&quot;);</span>
+<span class="fc" id="L354">			country.appendChild(doc.createTextNode(contact.getAddress().getCountry()));</span>
+<span class="fc" id="L355">			address.appendChild(country);</span>
+			
+<span class="fc" id="L357">			Element zip= doc.createElement(&quot;zip&quot;);</span>
+<span class="fc" id="L358">			zip.appendChild(doc.createTextNode(contact.getAddress().getZip()));</span>
+<span class="fc" id="L359">			address.appendChild(zip);</span>
+<span class="fc" id="L360">			contactNode.appendChild(address);</span>
+
+<span class="fc" id="L362">			contacts.appendChild(contactNode);</span>
+<span class="fc" id="L363">			writeToMaster(doc);</span>
+<span class="pc" id="L364">	   } catch (ParserConfigurationException pce) {</span>
+<span class="nc" id="L365">		   pce.printStackTrace();</span>
+<span class="nc" id="L366">	   } catch (TransformerException tfe) {</span>
+<span class="nc" id="L367">		   tfe.printStackTrace();</span>
+<span class="nc" id="L368">	   } catch (IOException ioe) {</span>
+<span class="nc" id="L369">		   ioe.printStackTrace();</span>
+<span class="nc" id="L370">	   } catch (SAXException sae) {</span>
+<span class="nc" id="L371">		   sae.printStackTrace();</span>
+	   }
+<span class="fc" id="L373">	}</span>
+	
+	private int getcontactIdNextVal() {
+<span class="fc" id="L376">		int cId=0;</span>
+		try {
+<span class="fc" id="L378">			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();</span>
+<span class="fc" id="L379">			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();</span>
+<span class="fc" id="L380">			Document doc = docBuilder.parse(masterXMLFile);</span>
+<span class="fc" id="L381">			String contactIdNextVal=doc.getElementsByTagName(&quot;contactIdSequenceValue&quot;).item(0).getTextContent();			</span>
+<span class="pc bpc" id="L382" title="1 of 2 branches missed.">			if(contactIdNextVal!=null) {</span>
+<span class="fc" id="L383">				cId=Integer.parseInt(contactIdNextVal);</span>
+			}
+<span class="fc" id="L385">			Node cIdNextNode = doc.getElementsByTagName(&quot;contactIdSequenceValue&quot;).item(0);</span>
+<span class="fc" id="L386">			cIdNextNode.setTextContent(String.valueOf(cId+1));</span>
+<span class="fc" id="L387">			writeToMaster(doc);</span>
+<span class="pc" id="L388">	   } catch (ParserConfigurationException pce) {</span>
+<span class="nc" id="L389">		   pce.printStackTrace();</span>
+<span class="nc" id="L390">	   } catch (TransformerException tfe) {</span>
+<span class="nc" id="L391">		   tfe.printStackTrace();</span>
+<span class="nc" id="L392">	   } catch (IOException ioe) {</span>
+<span class="nc" id="L393">		   ioe.printStackTrace();</span>
+<span class="nc" id="L394">	   } catch (SAXException sae) {</span>
+<span class="nc" id="L395">		   sae.printStackTrace();</span>
+	   }
+<span class="fc" id="L397">		return cId;</span>
+	}
+	
+	public int getContactIdCurrentVal() {
+<span class="fc" id="L401">		String contactIdSequenceValue=null;</span>
+		try {
+<span class="fc" id="L403">			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();</span>
+<span class="fc" id="L404">			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();</span>
+<span class="fc" id="L405">			Document doc = docBuilder.parse(masterXMLFile);</span>
+<span class="fc" id="L406">			contactIdSequenceValue=doc.getElementsByTagName(&quot;contactIdSequenceValue&quot;).item(0).getTextContent();			</span>
+<span class="pc" id="L407">	   } catch (ParserConfigurationException pce) {</span>
+<span class="nc" id="L408">		   pce.printStackTrace();</span>
+<span class="nc" id="L409">	   } catch (IOException ioe) {</span>
+<span class="nc" id="L410">		   ioe.printStackTrace();</span>
+<span class="nc" id="L411">	   } catch (SAXException sae) {</span>
+<span class="nc" id="L412">		   sae.printStackTrace();</span>
+	   }
+<span class="fc" id="L414">		return Integer.parseInt(contactIdSequenceValue);</span>
+	}
+	
+	private void writeToMaster(Document doc)
+			throws TransformerFactoryConfigurationError,
+			TransformerConfigurationException, TransformerException {
+		// write the content into xml file
+<span class="fc" id="L421">        doc.getDocumentElement().normalize();</span>
+<span class="fc" id="L422">        TransformerFactory transformerFactory = TransformerFactory.newInstance();</span>
+<span class="fc" id="L423">        Transformer transformer = transformerFactory.newTransformer();</span>
+<span class="fc" id="L424">        DOMSource source = new DOMSource(doc);</span>
+<span class="fc" id="L425">        StreamResult result = new StreamResult(new File(masterXMLFile));</span>
+<span class="fc" id="L426">        transformer.setOutputProperty(OutputKeys.INDENT, &quot;yes&quot;);</span>
+<span class="fc" id="L427">        transformer.transform(source, result);</span>
+<span class="fc" id="L428">	}</span>
+	
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.1.201405082137</span>ContactManagement (May 19, 2014 1:27:11 PM)</div></body></html>

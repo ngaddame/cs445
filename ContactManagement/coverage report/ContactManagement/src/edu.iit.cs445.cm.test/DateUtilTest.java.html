@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>DateUtilTest.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">ContactManagement (May 19, 2014 1:27:11 PM)</a> &gt; <a href="../../index.html" class="el_group">ContactManagement</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">edu.iit.cs445.cm.test</a> &gt; <span class="el_source">DateUtilTest.java</span></div><h1>DateUtilTest.java</h1><pre class="source lang-java linenums">package edu.iit.cs445.cm.test;
+
+import java.util.Calendar;
+import java.util.Date;
+
+import junit.framework.TestCase;
+import edu.iit.cs445.cm.util.DateUtil;
+
+<span class="fc" id="L9">public class DateUtilTest extends TestCase {</span>
+<span class="fc" id="L10">	Date today,sevenDays,lessthanToday,overSevenDays=null;</span>
+<span class="fc" id="L11">	String dateString=null;</span>
+	protected void setUp()  throws Exception {
+<span class="fc" id="L13">		dateString=&quot;01/01/2014&quot;;</span>
+<span class="fc" id="L14">		today=new Date();</span>
+		
+<span class="fc" id="L16">		Calendar sevenDaysC=Calendar.getInstance();</span>
+<span class="fc" id="L17">		sevenDaysC.add(Calendar.DATE,7);</span>
+<span class="fc" id="L18">		sevenDays=sevenDaysC.getTime();</span>
+		
+<span class="fc" id="L20">		Calendar afterSevenDaysC=Calendar.getInstance();</span>
+<span class="fc" id="L21">		afterSevenDaysC.add(Calendar.DATE,9);</span>
+<span class="fc" id="L22">		overSevenDays=afterSevenDaysC.getTime();</span>
+		
+<span class="fc" id="L24">		Calendar lessthanTodayC=Calendar.getInstance();</span>
+<span class="fc" id="L25">		lessthanTodayC.add(Calendar.DATE,-2);</span>
+<span class="fc" id="L26">		lessthanToday=lessthanTodayC.getTime();</span>
+<span class="fc" id="L27">	}</span>
+	
+	protected void tearDown() throws Exception {
+<span class="fc" id="L30">		super.tearDown();</span>
+<span class="fc" id="L31">	}</span>
+	
+	public void testHasBirthdayInNextSevenDaysWithToday() {
+<span class="fc" id="L34">		assertTrue(DateUtil.hasBirthdayInNextSevenDays(today));</span>
+<span class="fc" id="L35">	}</span>
+
+	public void testHasBirthdayInNextSevenDaysWithLessthanToday() {
+<span class="pc bpc" id="L38" title="1 of 2 branches missed.">		assertTrue(!DateUtil.hasBirthdayInNextSevenDays(lessthanToday));</span>
+<span class="fc" id="L39">	}</span>
+	
+	public void testHasBirthdayInNextSevenDaysWithSeventhDay() {
+<span class="fc" id="L42">		assertTrue(DateUtil.hasBirthdayInNextSevenDays(sevenDays));</span>
+<span class="fc" id="L43">	}</span>
+	
+	public void testHasBirthdayInNextSevenDaysWithOverSevenDays() {
+<span class="pc bpc" id="L46" title="1 of 2 branches missed.">		assertTrue(!DateUtil.hasBirthdayInNextSevenDays(overSevenDays));</span>
+<span class="fc" id="L47">	}</span>
+	
+	public void testHasBirthdayInNextSevenDaysWithNull() {
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">		assertTrue(!DateUtil.hasBirthdayInNextSevenDays(null));</span>
+<span class="fc" id="L51">	}</span>
+	
+	public void testConvertToDate() {
+<span class="fc" id="L54">		Date date=DateUtil.convertToDate(dateString);</span>
+<span class="fc" id="L55">		assertEquals(date,DateUtil.convertToDate(dateString));</span>
+<span class="fc" id="L56">	}</span>
+	
+	public void testConvertToString() {
+<span class="fc" id="L59">		Date date=DateUtil.convertToDate(dateString);</span>
+<span class="fc" id="L60">		assertEquals(dateString, DateUtil.convertToString(date));</span>
+<span class="fc" id="L61">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.1.201405082137</span>ContactManagement (May 19, 2014 1:27:11 PM)</div></body></html>

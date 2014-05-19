@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>NameTest.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">ContactManagement (May 19, 2014 1:27:11 PM)</a> &gt; <a href="../../index.html" class="el_group">ContactManagement</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">edu.iit.cs445.cm.test</a> &gt; <span class="el_source">NameTest.java</span></div><h1>NameTest.java</h1><pre class="source lang-java linenums">package edu.iit.cs445.cm.test;
+
+import edu.iit.cs445.cm.Name;
+import edu.iit.cs445.cm.Contact;
+import edu.iit.cs445.cm.XMLProcessor;
+import junit.framework.TestCase;
+
+<span class="fc" id="L8">public class NameTest extends TestCase{</span>
+	String fileName;
+	XMLProcessor p;
+<span class="fc" id="L11">	Contact contact=null;</span>
+<span class="fc" id="L12">	Name name=null;</span>
+<span class="fc" id="L13">	int contactId=0;</span>
+	protected void setUp()  throws Exception {
+<span class="fc" id="L15">	p=new XMLProcessor();</span>
+<span class="fc" id="L16">	fileName=&quot;contacts_for_unittest.xml&quot;;</span>
+<span class="fc" id="L17">	contactId=p.getContactIdCurrentVal();</span>
+<span class="fc" id="L18">	p.load(fileName);		</span>
+<span class="fc" id="L19">	contact=p.getContactById(contactId);</span>
+<span class="fc" id="L20">	name =contact.getName();</span>
+		
+<span class="fc" id="L22">	}</span>
+	/*
+	&lt;name&gt;
+	&lt;prefix&gt;Mr.&lt;/prefix&gt;
+	&lt;firstName&gt;Namrata&lt;/firstName&gt;
+	&lt;middleName&gt;&lt;/middleName&gt;
+	&lt;lastName&gt;Gaddameedi&lt;/lastName&gt;
+	&lt;suffix&gt;Jr.&lt;/suffix&gt;
+&lt;/name&gt;
+&lt;phone&gt;3142786242&lt;/phone&gt;
+&lt;fax&gt;&lt;/fax&gt;
+&lt;email&gt;g.namrata92@gmail.com&lt;/email&gt;
+&lt;note&gt;This is my favourite conbtact&lt;/note&gt;
+&lt;dob&gt;04/14/2000&lt;/dob&gt;
+&lt;address&gt;
+	&lt;street&gt;424 Clay St&lt;/street&gt;
+	&lt;pobox&gt;703&lt;/pobox&gt;
+	&lt;city&gt;San Francisco&lt;/city&gt;
+	&lt;state&gt;California&lt;/state&gt;
+	&lt;zip&gt;94111&lt;/zip&gt;
+	&lt;country&gt;USA&lt;/country&gt;
+&lt;/address&gt;
+*/
+	
+	protected void tearDown() throws Exception {
+<span class="fc" id="L47">		super.tearDown();</span>
+<span class="fc" id="L48">		p.delete(contactId);</span>
+<span class="fc" id="L49">	}</span>
+	public void testPrefix()
+	{
+<span class="fc" id="L52">		assertEquals(&quot;Mr.&quot;,name.getPrefix());</span>
+<span class="fc" id="L53">	}</span>
+	public void testFirstName()
+	{
+<span class="fc" id="L56">		assertEquals(&quot;Namrata&quot;,name.getFirstName());</span>
+<span class="fc" id="L57">	}</span>
+	public void testMiddleName()
+	{
+<span class="fc" id="L60">		assertEquals(&quot;&quot;,name.getMiddleName());</span>
+<span class="fc" id="L61">	}</span>
+	public void testLastName()
+	{
+<span class="fc" id="L64">		assertEquals(&quot;Gaddameedi&quot;,name.getLastName());</span>
+<span class="fc" id="L65">	}</span>
+	public void testSufix()
+	{
+<span class="fc" id="L68">		assertEquals(&quot;Jr.&quot;,name.getSufix());</span>
+<span class="fc" id="L69">	}</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.1.201405082137</span>ContactManagement (May 19, 2014 1:27:11 PM)</div></body></html>
