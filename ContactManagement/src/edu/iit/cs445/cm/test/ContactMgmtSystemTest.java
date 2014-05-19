@@ -1,13 +1,9 @@
 package edu.iit.cs445.cm.test;
 
-import java.util.Calendar;
-import java.util.Date;
-
 import junit.framework.TestCase;
 import edu.iit.cs445.cm.Contact;
 import edu.iit.cs445.cm.ContactMgmtSystem;
 import edu.iit.cs445.cm.XMLProcessor;
-import edu.iit.cs445.cm.util.DateUtil;
 
 public class ContactMgmtSystemTest extends TestCase {
 	XMLProcessor p;
