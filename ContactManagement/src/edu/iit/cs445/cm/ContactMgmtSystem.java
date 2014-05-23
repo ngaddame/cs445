@@ -145,7 +145,7 @@ public class ContactMgmtSystem {
 
 			if(existingContact.getAddress()==null) {
 				existingContact.setAddress(newcontact.getAddress());
-			}
+			} 
 			else {
 				if(newcontact.getAddress().getStreet()!=null) {
 					existingContact.getAddress().setStreet(newcontact.getAddress().getStreet());

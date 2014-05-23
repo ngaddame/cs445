@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>Contact.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">ContactManagement (May 22, 2014 9:27:21 PM)</a> &gt; <a href="../../index.html" class="el_group">ContactManagement</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">edu.iit.cs445.cm</a> &gt; <span class="el_source">Contact.java</span></div><h1>Contact.java</h1><pre class="source lang-java linenums">package edu.iit.cs445.cm;
+
+import java.util.Date;
+
+
+public class Contact  {
+	Integer contactId;
+	Name name;
+	Address address;
+	String phone;
+	String fax;
+	String email;
+	Date dob;
+	String note;
+	public Contact(Name name, Address address, String phone, String fax,
+			String email, Date dob, String note) {
+<span class="fc" id="L17">		super();</span>
+<span class="fc" id="L18">		setName(name);</span>
+<span class="fc" id="L19">		setAddress(address);</span>
+<span class="fc" id="L20">		setPhone(phone);</span>
+<span class="fc" id="L21">		setEmail(email);</span>
+<span class="fc" id="L22">		setDob(dob);</span>
+<span class="fc" id="L23">		setNote(note);</span>
+<span class="fc" id="L24">		setFax(fax);</span>
+<span class="fc" id="L25">	}</span>
+	public Name getName() {
+<span class="fc" id="L27">		return name;</span>
+	}
+	public void setName(Name name) {
+<span class="fc" id="L30">		this.name = name;</span>
+<span class="fc" id="L31">	}</span>
+	public Address getAddress() {
+<span class="fc" id="L33">		return address;</span>
+	}
+	public void setAddress(Address address) {
+<span class="fc" id="L36">		this.address = address;</span>
+<span class="fc" id="L37">	}</span>
+	public String getPhone() {
+<span class="fc" id="L39">		return phone;</span>
+	}
+	public void setPhone(String phone) {
+<span class="fc" id="L42">		this.phone = phone;</span>
+<span class="fc" id="L43">	}</span>
+	public String getFax() {
+<span class="fc" id="L45">		return fax;</span>
+	}
+	public void setFax(String fax) {
+<span class="fc" id="L48">		this.fax = fax;</span>
+<span class="fc" id="L49">	}</span>
+	public String getEmail() {
+<span class="fc" id="L51">		return email;</span>
+	}
+	public void setEmail(String email) {
+<span class="fc" id="L54">		this.email = email;</span>
+<span class="fc" id="L55">	}</span>
+	public Date getDob() {
+<span class="fc" id="L57">		return dob;</span>
+	}
+	public void setDob(Date dob) {
+<span class="fc" id="L60">		this.dob = dob;</span>
+<span class="fc" id="L61">	}</span>
+	public String getNote() {
+<span class="fc" id="L63">		return note;</span>
+	}
+	public void setNote(String note) {
+<span class="fc" id="L66">		this.note = note;</span>
+<span class="fc" id="L67">	}</span>
+	public Integer getContactId() {
+<span class="fc" id="L69">		return contactId;</span>
+	}
+	public void setContactId(Integer contactId) {
+<span class="fc" id="L72">		this.contactId = contactId;</span>
+<span class="fc" id="L73">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.0.201403182114</span>ContactManagement (May 22, 2014 9:27:21 PM)</div></body></html>

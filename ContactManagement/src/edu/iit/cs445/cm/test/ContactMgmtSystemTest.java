@@ -97,7 +97,7 @@ public class ContactMgmtSystemTest extends TestCase {
 		String a=outContent.toString();
 		assertTrue(outContent.toString().startsWith("*** Invalid Command: ***\n   Required Fields:  firstname\n   Optional Fields:  prefix,middlename,lastname,suffix,street,pobox,city,state,zip,country,phone,fax,email,dob,note\n   Usage:  "+"add --firstname firstname --middlename middlename --lastname <lastname> --sufix <sufix> --street street --pobox pobox --city city --state state --zip zip --country country --phone phone --fax fax --email email --dob dob --note note"));
 	}
-	
+	 
 	public void testLoadInvalid() {
 		ContactMgmtSystem.main(new String[] {"load","--filename"});
 		String a=outContent.toString();
