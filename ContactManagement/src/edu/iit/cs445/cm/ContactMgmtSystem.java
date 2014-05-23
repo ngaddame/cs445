@@ -42,7 +42,6 @@ public class ContactMgmtSystem {
 			    }
 			    else {
 			    	System.out.println("ERROR: Invalid Command!");
-			    	System.exit(1);
 			    }
 			}catch(Exception e) {
 				e.printStackTrace();
@@ -58,25 +57,32 @@ public class ContactMgmtSystem {
 		//this method expects only 2 arguments. First argument is command name i.e load and the second argument is file name.
 		//if arguments count is less than 2, return and display error message.
 		if(args.length<3) {
-			System.out.println("** Invalid Command: *** "+"Two arguments required for load command.");
-			System.out.println("   Usage:  "+"cms load --filename filename");
-			System.exit(1);
+			System.out.println("*** Invalid Command: *** ");
+			System.out.println("   Usage:  "+"load --filename filename");
+			//System.exit(0);
 		}
-		
-		String fileName=args[2];
-		int count=processor.load(fileName);
-		System.out.println(count+" contact(s) loaded successfully.");
+		else {
+			String fileName=args[2];
+			int count=processor.load(fileName);
+			System.out.println(count+" contact(s) loaded successfully.");
+		}
 		
 	}
 	private void search(String[] args) {
-		List<Contact> list=processor.search(args[2]);
-		int length=list.size();
-		if(length!=0)
-		{
-			printContacts(list);
+		if(args.length<3) {
+			System.out.println("*** Invalid Command: *** ");
+			System.out.println("   Usage:  "+"search --searchkey searchkeyvalue");
 		}
-		else{
-		System.out.println("contact doesn't exist with the specified keyword");
+		else {
+			List<Contact> list=processor.search(args[2]);
+			int length=list.size();
+			if(length!=0)
+			{
+				printContacts(list);
+			}
+			else{
+				System.out.println("Contact doesn't exist with the specified keyword");
+			}
 		}
 	}
 
@@ -102,11 +108,10 @@ public class ContactMgmtSystem {
 	}
 	private void add(String[] args) {
 		if(args.length<3) {
-			System.out.println("** Invalid Command: *** "+"Two arguments required for load command.");
+			System.out.println("*** Invalid Command: ***");
 			System.out.println("   Required Fields:  firstname");
 			System.out.println("   Optional Fields:  prefix,middlename,lastname,suffix,street,pobox,city,state,zip,country,phone,fax,email,dob,note");
-			System.out.println("   Usage:  "+"cms add --firstname firstname --middlename middlename --lastname <lastname> --sufix <sufix> --street street --pobox pobox --city city --state state --zip zip --country country --phone phone --fax fax --email email --dob dob --note note");
-			System.exit(1);
+			System.out.println("   Usage:  "+"add --firstname firstname --middlename middlename --lastname <lastname> --sufix <sufix> --street street --pobox pobox --city city --state state --zip zip --country country --phone phone --fax fax --email email --dob dob --note note");
 		}
 		else
 		{
@@ -118,20 +123,18 @@ public class ContactMgmtSystem {
 	}
 
 	private void listall(String[] args) {
-		System.out.println("** List of all exisitng contacts ***");
 		List<Contact> list=processor.listAll();
+		System.out.println("*** List of all exisitng contacts ***");
 		printContacts(list);
 	}
 	
 	private void edit(String[] args) {
 		if(args.length<3) {
-			System.out.println("** Invalid Command: *** "+"Two arguments required for edit command.");
-			System.out.println("   Usage:  "+"cms edit --contactid <contactId>");
-			System.exit(1);
+			System.out.println("*** Invalid Command: *** ");
+			System.out.println("   Usage:  "+"edit --contactid <contactId>");
 		}
 		else
 		{
-			
 			Contact newcontact = getContactFromArguments(args);
 			
 			Contact existingContact=processor.getContactById(newcontact.getContactId());
@@ -207,16 +210,15 @@ public class ContactMgmtSystem {
 			}
 			
 			processor.edit(existingContact);
-			System.out.println("Contact "+existingContact.getContactId()+" has been updated scussfully.\n");
+			System.out.println("Contact "+existingContact.getContactId()+" has been updated scussfully.");
 			displayContact(existingContact);
 		}
 	}
 		
 	private void delete(String[] args) {
 		if(args.length<3 || !args[1].equals("--contactid")) {
-			System.out.println("** Invalid Command: *** ");
-			System.out.println("   Usage:  "+"cms delete --contactid <contactId>");
-			System.exit(1);
+			System.out.println("*** Invalid Command: *** ");
+			System.out.println("   Usage:  "+"delete --contactid <contactId>");
 		}
 		else
 		{
@@ -226,13 +228,7 @@ public class ContactMgmtSystem {
 				System.out.println("Contact "+contactId+" has been deleted sucessfully.");	
 			}
 			else {
-				Contact contact=processor.getContactById(contactId);
-				if(contact==null) {
-					System.out.println("Contact "+contactId+" not found.");
-				}
-				else {
-					System.out.println("Problem deleting contact "+contactId);
-				}
+				System.out.println("Invalid contactid.");	
 			}
 		}
 		
@@ -240,9 +236,8 @@ public class ContactMgmtSystem {
 
 	private void view(String[] args) {
 		if(args.length<3 || !args[1].equals("--contactid")) {
-			System.out.println("** Invalid Command: *** ");
-			System.out.println("   Usage:  "+"cms view --contactid <contactId>");
-			System.exit(1);
+			System.out.println("*** Invalid Command: *** ");
+			System.out.println("   Usage:  "+"view --contactid <contactId>");
 		}
 		else {
 			Contact contact=processor.getContactById(Integer.parseInt(args[2]));
@@ -310,66 +305,66 @@ public class ContactMgmtSystem {
 						contactId=Integer.parseInt(args[i+1]);
 					}
 				}
-				else if(argument.equals("--firstname")) {
+				if(argument.equals("--firstname")) {
 					firstname=args[i+1];
 				}
-				else if(argument.equals("--prefix")){
+				if(argument.equals("--prefix")){
 					prefix=args[i+1];
 				}
-				else if(argument.equals("--middlename")){
+				if(argument.equals("--middlename")){
 					middlename=args[i+1];
 				}
-				else if(argument.equals("--lastname"))
+				if(argument.equals("--lastname"))
 				{
 					lastname=args[i+1];
 				}
-				else if(argument.equals("--suffix"))
+				if(argument.equals("--suffix"))
 				{
 					suffix=args[i+1];
 				}
-				else if(argument.equals("--street"))
+				if(argument.equals("--street"))
 				{
 					street=args[i+1];
 				}
-				else if(argument.equals("--pobox"))
+				if(argument.equals("--pobox"))
 				{
 					pobox=args[i+1];
 				}
-				else if(argument.equals("--city"))
+				if(argument.equals("--city"))
 				{
 					city=args[i+1];
 				}
-				else if(argument.equals("--state"))
+				if(argument.equals("--state"))
 				{
 					state=args[i+1];
 				}
-				else if(argument.equals("--zip"))
+				if(argument.equals("--zip"))
 				{
 					zip=args[i+1];
 				}
-				else if(argument.equals("--country"))
+				if(argument.equals("--country"))
 				{
 					country=args[i+1];
 				}
-				else if(argument.equals("--phone"))
+				if(argument.equals("--phone"))
 				{
 					phone=args[i+1];
 				}
-				else if(argument.equals("--fax"))
+				if(argument.equals("--fax"))
 				{
 					fax=args[i+1];
 				}
-				else if(argument.equals("--email"))
+				if(argument.equals("--email"))
 				{
 					email=args[i+1];
 				}
-				else if(argument.equals("--dob"))
+				if(argument.equals("--dob"))
 				{
 					if(args[i+1]!=null) {
 						dob=DateUtil.convertToDate(args[i+1]);
 					}
 				}
-				else if(argument.equals("--note"))
+				if(argument.equals("--note"))
 				{
 					note=args[i+1];
 				}
