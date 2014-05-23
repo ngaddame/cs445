@@ -112,8 +112,11 @@ public class ContactMgmtSystemTest extends TestCase {
 		ContactMgmtSystem.main(new String[] {"search","--searchkey"});
 		assertTrue(outContent.toString().startsWith("*** Invalid Command: *** \n   Usage:  "+"search --searchkey searchkeyvalue"));
 	}
-	
-	public void testEditInvalid() {
+	public void testEditInvalidContactid() {
+		ContactMgmtSystem.main(new String[] {"edit","--contactid","-1"});
+		assertTrue(outContent.toString().startsWith("Invalid contactid -1"));
+	}
+	public void testEditInvalidCommand() {
 		ContactMgmtSystem.main(new String[] {"edit","--contactid"});
 		assertTrue(outContent.toString().startsWith("*** Invalid Command: *** \n   Usage:  "+"edit --contactid <contactId>"));
 	}

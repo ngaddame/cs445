@@ -142,11 +142,11 @@ public class ContactMgmtSystem {
 				System.out.println("Invalid contactid "+newcontact.getContactId());
 				return;
 			}
-			//if name in existing contact is null, set Name from new contact.
+
 			if(existingContact.getAddress()==null) {
 				existingContact.setAddress(newcontact.getAddress());
 			}
-			else if(newcontact.getAddress()!=null) {
+			else {
 				if(newcontact.getAddress().getStreet()!=null) {
 					existingContact.getAddress().setStreet(newcontact.getAddress().getStreet());
 				}
@@ -191,7 +191,7 @@ public class ContactMgmtSystem {
 			if(existingContact.getName()==null) {
 				existingContact.setName(newcontact.getName());
 			}
-			else if(newcontact.getName()!=null) {
+			else {
 				if(newcontact.getName().getPrefix()!=null) {
 					existingContact.getName().setPrefix(newcontact.getName().getPrefix());
 				}
