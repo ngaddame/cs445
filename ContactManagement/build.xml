@@ -14,7 +14,7 @@
 
   <!-- Define the classpath which includes the junit.jar and the classes after compiling-->
   <path id="junit.class.path">
-    <pathelement location="lib/junit-4.11.jar" />
+    <pathelement location="${lib.dir}/junit-4.11.jar" />
     <pathelement location="${build.dir}" />
   </path>
 
@@ -36,7 +36,7 @@
 
   <!-- Compiles the java code (including the usage of library for JUnit -->
   <target name="compile" depends="clean, makedir">
-    <javac srcdir="${src.dir}" destdir="${build.dir}">
+    <javac  srcdir="${src.dir}" destdir="${build.dir}">
       <classpath refid="junit.class.path" />
     </javac>
 
@@ -48,7 +48,8 @@
       <!-- Define which files / directory should get included, we include all -->
        <fileset dir="${src.dir}">
                 <include name="**" />
-           </fileset>
+       </fileset>
+       <classpath refid="junit.class.path" />
     </javadoc>
   </target>
 
@@ -74,7 +75,7 @@
    
   <!-- Run the JUnit Tests -->
   <!-- Output is XML, could also be plain-->
-  <target name="test" depends="compile">
+  <target name="test-run" depends="build,compile">
     <junit printsummary="on" fork="true" haltonfailure="yes">
       <classpath refid="junit.class.path" />
       <formatter type="xml" />
@@ -85,6 +86,15 @@
       </batchtest>
     </junit>
   </target>
+  
+  <target name="test" depends="test-run">
+        <junitreport todir="${test.report.dir}">
+            <fileset dir="${test.report.dir}">
+                <include name="TEST-*.xml" />
+            </fileset>
+            <report format="noframes" todir="${test.report.dir}\html\" />
+        </junitreport>
+    </target>
 
   <target name="build" depends="compile, jar, docs">
     <description>Build target</description>

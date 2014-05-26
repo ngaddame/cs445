@@ -277,7 +277,7 @@ public class ContactMgmtSystem {
 	/**
 	 * Builds a Contact object from command line arguments.
 	 * @param args
-	 * @return
+	 * @return Contact
 	 */
 	private Contact getContactFromArguments(String[] args) {
 		String firstname=null;
