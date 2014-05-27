@@ -1,0 +1,1323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Unit Test Results.</title>
+<style type="text/css">
+      body {
+        font:normal 68% verdana,arial,helvetica;
+        color:#000000;
+      }
+      table tr td, table tr th {
+          font-size: 68%;
+      }
+      table.details tr th{
+        font-weight: bold;
+        text-align:left;
+        background:#a6caf0;
+      }
+      table.details tr td{
+        background:#eeeee0;
+      }
+
+      p {
+        line-height:1.5em;
+        margin-top:0.5em; margin-bottom:1.0em;
+      }
+      h1 {
+        margin: 0px 0px 5px; font: 165% verdana,arial,helvetica
+      }
+      h2 {
+        margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica
+      }
+      h3 {
+        margin-bottom: 0.5em; font: bold 115% verdana,arial,helvetica
+      }
+      h4 {
+        margin-bottom: 0.5em; font: bold 100% verdana,arial,helvetica
+      }
+      h5 {
+        margin-bottom: 0.5em; font: bold 100% verdana,arial,helvetica
+      }
+      h6 {
+        margin-bottom: 0.5em; font: bold 100% verdana,arial,helvetica
+      }
+      .Error {
+        font-weight:bold; color:red;
+      }
+      .Failure {
+        font-weight:bold; color:purple;
+      }
+      .Properties {
+        text-align:right;
+      }
+      </style>
+<script type="text/javascript" language="JavaScript">
+        var TestCases = new Array();
+        var cur;
+        
+    cur = TestCases['edu.iit.cs445.cm.test.AddressTest'] = new Array();
+    
+        cur['ant.core.lib'] = 'E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant.jar';
+    
+        cur['ant.file'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\build.xml';
+    
+        cur['ant.file.CMS'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\build.xml';
+    
+        cur['ant.file.type.CMS'] = 'file';
+    
+        cur['ant.home'] = 'E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445';
+    
+        cur['ant.java.version'] = '1.7';
+    
+        cur['ant.library.dir'] = 'E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib';
+    
+        cur['ant.project.default-target'] = 'run';
+    
+        cur['ant.project.invoked-targets'] = 'test';
+    
+        cur['ant.project.name'] = 'CMS';
+    
+        cur['ant.version'] = 'Apache Ant(TM) version 1.9.2 compiled on July 8 2013';
+    
+        cur['awt.toolkit'] = 'sun.awt.windows.WToolkit';
+    
+        cur['basedir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement';
+    
+        cur['build.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\bin';
+    
+        cur['classpath.property'] = '${build}/';
+    
+        cur['dist.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\dist';
+    
+        cur['docs.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\docs';
+    
+        cur['eclipse.pdebuild.home'] = '/E:/Software/eclipse/plugins/org.eclipse.pde.build_3.9.0.v20130725-2123/./';
+    
+        cur['eclipse.pdebuild.scripts'] = '/E:/Software/eclipse/plugins/org.eclipse.pde.build_3.9.0.v20130725-2123/scripts/';
+    
+        cur['eclipse.pdebuild.templates'] = '/E:/Software/eclipse/plugins/org.eclipse.pde.build_3.9.0.v20130725-2123/templates/';
+    
+        cur['file.encoding'] = 'Cp1252';
+    
+        cur['file.encoding.pkg'] = 'sun.io';
+    
+        cur['file.separator'] = '\\';
+    
+        cur['java.awt.graphicsenv'] = 'sun.awt.Win32GraphicsEnvironment';
+    
+        cur['java.awt.printerjob'] = 'sun.awt.windows.WPrinterJob';
+    
+        cur['java.class.path'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\lib\\junit-4.11.jar;C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\bin;E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant-launcher.jar;E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant.jar;E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant-junit.jar;E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant-junit4.jar';
+    
+        cur['java.class.version'] = '51.0';
+    
+        cur['java.endorsed.dirs'] = 'C:\\Program Files\\Java\\jre7\\lib\\endorsed';
+    
+        cur['java.ext.dirs'] = 'C:\\Program Files\\Java\\jre7\\lib\\ext;C:\\WINDOWS\\Sun\\Java\\lib\\ext';
+    
+        cur['java.home'] = 'C:\\Program Files\\Java\\jre7';
+    
+        cur['java.io.tmpdir'] = 'C:\\Users\\Tarani\\AppData\\Local\\Temp\\';
+    
+        cur['java.library.path'] = 'C:\\Program Files\\Java\\jre7\\bin;C:\\WINDOWS\\Sun\\Java\\bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Sony\\VAIO Improvement\\;C:\\Program Files (x86)\\Sony\\VAIO Startup Setting Tool\\C:\\Program Files (x86)\\Java\\jdk1.7.0_55\\bin;.;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Sony\\VAIO Improvement\\;C:\\Program Files (x86)\\Sony\\VAIO Startup Setting Tool\\C:\\Program Files (x86)\\Java\\jdk1.7.0_55\\bin;.;;C:\\Program Files (x86)\\Java\\jdk1.7.0_55\\bin;.;;.';
+    
+        cur['java.runtime.name'] = 'Java(TM) SE Runtime Environment';
+    
+        cur['java.runtime.version'] = '1.7.0_09-b05';
+    
+        cur['java.specification.name'] = 'Java Platform API Specification';
+    
+        cur['java.specification.vendor'] = 'Oracle Corporation';
+    
+        cur['java.specification.version'] = '1.7';
+    
+        cur['java.vendor'] = 'Oracle Corporation';
+    
+        cur['java.vendor.url'] = 'http://java.oracle.com/';
+    
+        cur['java.vendor.url.bug'] = 'http://bugreport.sun.com/bugreport/';
+    
+        cur['java.version'] = '1.7.0_09';
+    
+        cur['java.vm.info'] = 'mixed mode';
+    
+        cur['java.vm.name'] = 'Java HotSpot(TM) 64-Bit Server VM';
+    
+        cur['java.vm.specification.name'] = 'Java Virtual Machine Specification';
+    
+        cur['java.vm.specification.vendor'] = 'Oracle Corporation';
+    
+        cur['java.vm.specification.version'] = '1.7';
+    
+        cur['java.vm.vendor'] = 'Oracle Corporation';
+    
+        cur['java.vm.version'] = '23.5-b02';
+    
+        cur['lib.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\lib';
+    
+        cur['line.separator'] = '\r\n';
+    
+        cur['os.arch'] = 'amd64';
+    
+        cur['os.name'] = 'Windows 8';
+    
+        cur['os.version'] = '6.2';
+    
+        cur['path.separator'] = ';';
+    
+        cur['src.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\src';
+    
+        cur['sun.arch.data.model'] = '64';
+    
+        cur['sun.boot.class.path'] = 'C:\\Program Files\\Java\\jre7\\lib\\resources.jar;C:\\Program Files\\Java\\jre7\\lib\\rt.jar;C:\\Program Files\\Java\\jre7\\lib\\sunrsasign.jar;C:\\Program Files\\Java\\jre7\\lib\\jsse.jar;C:\\Program Files\\Java\\jre7\\lib\\jce.jar;C:\\Program Files\\Java\\jre7\\lib\\charsets.jar;C:\\Program Files\\Java\\jre7\\lib\\jfr.jar;C:\\Program Files\\Java\\jre7\\classes';
+    
+        cur['sun.boot.library.path'] = 'C:\\Program Files\\Java\\jre7\\bin';
+    
+        cur['sun.cpu.endian'] = 'little';
+    
+        cur['sun.cpu.isalist'] = 'amd64';
+    
+        cur['sun.desktop'] = 'windows';
+    
+        cur['sun.io.unicode.encoding'] = 'UnicodeLittle';
+    
+        cur['sun.java.command'] = 'org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.iit.cs445.cm.test.AddressTest filtertrace=true haltOnError=false haltOnFailure=true formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\testreport\\TEST-edu.iit.cs445.cm.test.AddressTest.xml crashfile=C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\junitvmwatcher7903002792588577009.properties propsfile=C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\junit6734502356715943836.properties';
+    
+        cur['sun.java.launcher'] = 'SUN_STANDARD';
+    
+        cur['sun.jnu.encoding'] = 'Cp1252';
+    
+        cur['sun.management.compiler'] = 'HotSpot 64-Bit Tiered Compilers';
+    
+        cur['sun.os.patch.level'] = '';
+    
+        cur['test.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\src';
+    
+        cur['test.report.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\testreport';
+    
+        cur['user.country'] = 'US';
+    
+        cur['user.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement';
+    
+        cur['user.home'] = 'C:\\Users\\Tarani';
+    
+        cur['user.language'] = 'en';
+    
+        cur['user.name'] = 'Tarani';
+    
+        cur['user.script'] = '';
+    
+        cur['user.timezone'] = '';
+    
+        cur['user.variant'] = '';
+    
+    cur = TestCases['edu.iit.cs445.cm.test.ContactMgmtSystemTest'] = new Array();
+    
+        cur['ant.core.lib'] = 'E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant.jar';
+    
+        cur['ant.file'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\build.xml';
+    
+        cur['ant.file.CMS'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\build.xml';
+    
+        cur['ant.file.type.CMS'] = 'file';
+    
+        cur['ant.home'] = 'E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445';
+    
+        cur['ant.java.version'] = '1.7';
+    
+        cur['ant.library.dir'] = 'E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib';
+    
+        cur['ant.project.default-target'] = 'run';
+    
+        cur['ant.project.invoked-targets'] = 'test';
+    
+        cur['ant.project.name'] = 'CMS';
+    
+        cur['ant.version'] = 'Apache Ant(TM) version 1.9.2 compiled on July 8 2013';
+    
+        cur['awt.toolkit'] = 'sun.awt.windows.WToolkit';
+    
+        cur['basedir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement';
+    
+        cur['build.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\bin';
+    
+        cur['classpath.property'] = '${build}/';
+    
+        cur['dist.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\dist';
+    
+        cur['docs.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\docs';
+    
+        cur['eclipse.pdebuild.home'] = '/E:/Software/eclipse/plugins/org.eclipse.pde.build_3.9.0.v20130725-2123/./';
+    
+        cur['eclipse.pdebuild.scripts'] = '/E:/Software/eclipse/plugins/org.eclipse.pde.build_3.9.0.v20130725-2123/scripts/';
+    
+        cur['eclipse.pdebuild.templates'] = '/E:/Software/eclipse/plugins/org.eclipse.pde.build_3.9.0.v20130725-2123/templates/';
+    
+        cur['file.encoding'] = 'Cp1252';
+    
+        cur['file.encoding.pkg'] = 'sun.io';
+    
+        cur['file.separator'] = '\\';
+    
+        cur['java.awt.graphicsenv'] = 'sun.awt.Win32GraphicsEnvironment';
+    
+        cur['java.awt.printerjob'] = 'sun.awt.windows.WPrinterJob';
+    
+        cur['java.class.path'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\lib\\junit-4.11.jar;C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\bin;E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant-launcher.jar;E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant.jar;E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant-junit.jar;E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant-junit4.jar';
+    
+        cur['java.class.version'] = '51.0';
+    
+        cur['java.endorsed.dirs'] = 'C:\\Program Files\\Java\\jre7\\lib\\endorsed';
+    
+        cur['java.ext.dirs'] = 'C:\\Program Files\\Java\\jre7\\lib\\ext;C:\\WINDOWS\\Sun\\Java\\lib\\ext';
+    
+        cur['java.home'] = 'C:\\Program Files\\Java\\jre7';
+    
+        cur['java.io.tmpdir'] = 'C:\\Users\\Tarani\\AppData\\Local\\Temp\\';
+    
+        cur['java.library.path'] = 'C:\\Program Files\\Java\\jre7\\bin;C:\\WINDOWS\\Sun\\Java\\bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Sony\\VAIO Improvement\\;C:\\Program Files (x86)\\Sony\\VAIO Startup Setting Tool\\C:\\Program Files (x86)\\Java\\jdk1.7.0_55\\bin;.;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Sony\\VAIO Improvement\\;C:\\Program Files (x86)\\Sony\\VAIO Startup Setting Tool\\C:\\Program Files (x86)\\Java\\jdk1.7.0_55\\bin;.;;C:\\Program Files (x86)\\Java\\jdk1.7.0_55\\bin;.;;.';
+    
+        cur['java.runtime.name'] = 'Java(TM) SE Runtime Environment';
+    
+        cur['java.runtime.version'] = '1.7.0_09-b05';
+    
+        cur['java.specification.name'] = 'Java Platform API Specification';
+    
+        cur['java.specification.vendor'] = 'Oracle Corporation';
+    
+        cur['java.specification.version'] = '1.7';
+    
+        cur['java.vendor'] = 'Oracle Corporation';
+    
+        cur['java.vendor.url'] = 'http://java.oracle.com/';
+    
+        cur['java.vendor.url.bug'] = 'http://bugreport.sun.com/bugreport/';
+    
+        cur['java.version'] = '1.7.0_09';
+    
+        cur['java.vm.info'] = 'mixed mode';
+    
+        cur['java.vm.name'] = 'Java HotSpot(TM) 64-Bit Server VM';
+    
+        cur['java.vm.specification.name'] = 'Java Virtual Machine Specification';
+    
+        cur['java.vm.specification.vendor'] = 'Oracle Corporation';
+    
+        cur['java.vm.specification.version'] = '1.7';
+    
+        cur['java.vm.vendor'] = 'Oracle Corporation';
+    
+        cur['java.vm.version'] = '23.5-b02';
+    
+        cur['lib.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\lib';
+    
+        cur['line.separator'] = '\r\n';
+    
+        cur['os.arch'] = 'amd64';
+    
+        cur['os.name'] = 'Windows 8';
+    
+        cur['os.version'] = '6.2';
+    
+        cur['path.separator'] = ';';
+    
+        cur['src.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\src';
+    
+        cur['sun.arch.data.model'] = '64';
+    
+        cur['sun.boot.class.path'] = 'C:\\Program Files\\Java\\jre7\\lib\\resources.jar;C:\\Program Files\\Java\\jre7\\lib\\rt.jar;C:\\Program Files\\Java\\jre7\\lib\\sunrsasign.jar;C:\\Program Files\\Java\\jre7\\lib\\jsse.jar;C:\\Program Files\\Java\\jre7\\lib\\jce.jar;C:\\Program Files\\Java\\jre7\\lib\\charsets.jar;C:\\Program Files\\Java\\jre7\\lib\\jfr.jar;C:\\Program Files\\Java\\jre7\\classes';
+    
+        cur['sun.boot.library.path'] = 'C:\\Program Files\\Java\\jre7\\bin';
+    
+        cur['sun.cpu.endian'] = 'little';
+    
+        cur['sun.cpu.isalist'] = 'amd64';
+    
+        cur['sun.desktop'] = 'windows';
+    
+        cur['sun.io.unicode.encoding'] = 'UnicodeLittle';
+    
+        cur['sun.java.command'] = 'org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.iit.cs445.cm.test.ContactMgmtSystemTest filtertrace=true haltOnError=false haltOnFailure=true formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\testreport\\TEST-edu.iit.cs445.cm.test.ContactMgmtSystemTest.xml crashfile=C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\junitvmwatcher7126686559877328832.properties propsfile=C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\junit6595228817545224645.properties';
+    
+        cur['sun.java.launcher'] = 'SUN_STANDARD';
+    
+        cur['sun.jnu.encoding'] = 'Cp1252';
+    
+        cur['sun.management.compiler'] = 'HotSpot 64-Bit Tiered Compilers';
+    
+        cur['sun.os.patch.level'] = '';
+    
+        cur['test.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\src';
+    
+        cur['test.report.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\testreport';
+    
+        cur['user.country'] = 'US';
+    
+        cur['user.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement';
+    
+        cur['user.home'] = 'C:\\Users\\Tarani';
+    
+        cur['user.language'] = 'en';
+    
+        cur['user.name'] = 'Tarani';
+    
+        cur['user.script'] = '';
+    
+        cur['user.timezone'] = '';
+    
+        cur['user.variant'] = '';
+    
+    cur = TestCases['edu.iit.cs445.cm.test.ContactTest'] = new Array();
+    
+        cur['ant.core.lib'] = 'E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant.jar';
+    
+        cur['ant.file'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\build.xml';
+    
+        cur['ant.file.CMS'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\build.xml';
+    
+        cur['ant.file.type.CMS'] = 'file';
+    
+        cur['ant.home'] = 'E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445';
+    
+        cur['ant.java.version'] = '1.7';
+    
+        cur['ant.library.dir'] = 'E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib';
+    
+        cur['ant.project.default-target'] = 'run';
+    
+        cur['ant.project.invoked-targets'] = 'test';
+    
+        cur['ant.project.name'] = 'CMS';
+    
+        cur['ant.version'] = 'Apache Ant(TM) version 1.9.2 compiled on July 8 2013';
+    
+        cur['awt.toolkit'] = 'sun.awt.windows.WToolkit';
+    
+        cur['basedir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement';
+    
+        cur['build.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\bin';
+    
+        cur['classpath.property'] = '${build}/';
+    
+        cur['dist.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\dist';
+    
+        cur['docs.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\docs';
+    
+        cur['eclipse.pdebuild.home'] = '/E:/Software/eclipse/plugins/org.eclipse.pde.build_3.9.0.v20130725-2123/./';
+    
+        cur['eclipse.pdebuild.scripts'] = '/E:/Software/eclipse/plugins/org.eclipse.pde.build_3.9.0.v20130725-2123/scripts/';
+    
+        cur['eclipse.pdebuild.templates'] = '/E:/Software/eclipse/plugins/org.eclipse.pde.build_3.9.0.v20130725-2123/templates/';
+    
+        cur['file.encoding'] = 'Cp1252';
+    
+        cur['file.encoding.pkg'] = 'sun.io';
+    
+        cur['file.separator'] = '\\';
+    
+        cur['java.awt.graphicsenv'] = 'sun.awt.Win32GraphicsEnvironment';
+    
+        cur['java.awt.printerjob'] = 'sun.awt.windows.WPrinterJob';
+    
+        cur['java.class.path'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\lib\\junit-4.11.jar;C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\bin;E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant-launcher.jar;E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant.jar;E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant-junit.jar;E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant-junit4.jar';
+    
+        cur['java.class.version'] = '51.0';
+    
+        cur['java.endorsed.dirs'] = 'C:\\Program Files\\Java\\jre7\\lib\\endorsed';
+    
+        cur['java.ext.dirs'] = 'C:\\Program Files\\Java\\jre7\\lib\\ext;C:\\WINDOWS\\Sun\\Java\\lib\\ext';
+    
+        cur['java.home'] = 'C:\\Program Files\\Java\\jre7';
+    
+        cur['java.io.tmpdir'] = 'C:\\Users\\Tarani\\AppData\\Local\\Temp\\';
+    
+        cur['java.library.path'] = 'C:\\Program Files\\Java\\jre7\\bin;C:\\WINDOWS\\Sun\\Java\\bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Sony\\VAIO Improvement\\;C:\\Program Files (x86)\\Sony\\VAIO Startup Setting Tool\\C:\\Program Files (x86)\\Java\\jdk1.7.0_55\\bin;.;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Sony\\VAIO Improvement\\;C:\\Program Files (x86)\\Sony\\VAIO Startup Setting Tool\\C:\\Program Files (x86)\\Java\\jdk1.7.0_55\\bin;.;;C:\\Program Files (x86)\\Java\\jdk1.7.0_55\\bin;.;;.';
+    
+        cur['java.runtime.name'] = 'Java(TM) SE Runtime Environment';
+    
+        cur['java.runtime.version'] = '1.7.0_09-b05';
+    
+        cur['java.specification.name'] = 'Java Platform API Specification';
+    
+        cur['java.specification.vendor'] = 'Oracle Corporation';
+    
+        cur['java.specification.version'] = '1.7';
+    
+        cur['java.vendor'] = 'Oracle Corporation';
+    
+        cur['java.vendor.url'] = 'http://java.oracle.com/';
+    
+        cur['java.vendor.url.bug'] = 'http://bugreport.sun.com/bugreport/';
+    
+        cur['java.version'] = '1.7.0_09';
+    
+        cur['java.vm.info'] = 'mixed mode';
+    
+        cur['java.vm.name'] = 'Java HotSpot(TM) 64-Bit Server VM';
+    
+        cur['java.vm.specification.name'] = 'Java Virtual Machine Specification';
+    
+        cur['java.vm.specification.vendor'] = 'Oracle Corporation';
+    
+        cur['java.vm.specification.version'] = '1.7';
+    
+        cur['java.vm.vendor'] = 'Oracle Corporation';
+    
+        cur['java.vm.version'] = '23.5-b02';
+    
+        cur['lib.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\lib';
+    
+        cur['line.separator'] = '\r\n';
+    
+        cur['os.arch'] = 'amd64';
+    
+        cur['os.name'] = 'Windows 8';
+    
+        cur['os.version'] = '6.2';
+    
+        cur['path.separator'] = ';';
+    
+        cur['src.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\src';
+    
+        cur['sun.arch.data.model'] = '64';
+    
+        cur['sun.boot.class.path'] = 'C:\\Program Files\\Java\\jre7\\lib\\resources.jar;C:\\Program Files\\Java\\jre7\\lib\\rt.jar;C:\\Program Files\\Java\\jre7\\lib\\sunrsasign.jar;C:\\Program Files\\Java\\jre7\\lib\\jsse.jar;C:\\Program Files\\Java\\jre7\\lib\\jce.jar;C:\\Program Files\\Java\\jre7\\lib\\charsets.jar;C:\\Program Files\\Java\\jre7\\lib\\jfr.jar;C:\\Program Files\\Java\\jre7\\classes';
+    
+        cur['sun.boot.library.path'] = 'C:\\Program Files\\Java\\jre7\\bin';
+    
+        cur['sun.cpu.endian'] = 'little';
+    
+        cur['sun.cpu.isalist'] = 'amd64';
+    
+        cur['sun.desktop'] = 'windows';
+    
+        cur['sun.io.unicode.encoding'] = 'UnicodeLittle';
+    
+        cur['sun.java.command'] = 'org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.iit.cs445.cm.test.ContactTest filtertrace=true haltOnError=false haltOnFailure=true formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\testreport\\TEST-edu.iit.cs445.cm.test.ContactTest.xml crashfile=C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\junitvmwatcher1255708214175718837.properties propsfile=C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\junit1054735403334608368.properties';
+    
+        cur['sun.java.launcher'] = 'SUN_STANDARD';
+    
+        cur['sun.jnu.encoding'] = 'Cp1252';
+    
+        cur['sun.management.compiler'] = 'HotSpot 64-Bit Tiered Compilers';
+    
+        cur['sun.os.patch.level'] = '';
+    
+        cur['test.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\src';
+    
+        cur['test.report.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\testreport';
+    
+        cur['user.country'] = 'US';
+    
+        cur['user.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement';
+    
+        cur['user.home'] = 'C:\\Users\\Tarani';
+    
+        cur['user.language'] = 'en';
+    
+        cur['user.name'] = 'Tarani';
+    
+        cur['user.script'] = '';
+    
+        cur['user.timezone'] = '';
+    
+        cur['user.variant'] = '';
+    
+    cur = TestCases['edu.iit.cs445.cm.test.DateUtilTest'] = new Array();
+    
+        cur['ant.core.lib'] = 'E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant.jar';
+    
+        cur['ant.file'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\build.xml';
+    
+        cur['ant.file.CMS'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\build.xml';
+    
+        cur['ant.file.type.CMS'] = 'file';
+    
+        cur['ant.home'] = 'E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445';
+    
+        cur['ant.java.version'] = '1.7';
+    
+        cur['ant.library.dir'] = 'E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib';
+    
+        cur['ant.project.default-target'] = 'run';
+    
+        cur['ant.project.invoked-targets'] = 'test';
+    
+        cur['ant.project.name'] = 'CMS';
+    
+        cur['ant.version'] = 'Apache Ant(TM) version 1.9.2 compiled on July 8 2013';
+    
+        cur['awt.toolkit'] = 'sun.awt.windows.WToolkit';
+    
+        cur['basedir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement';
+    
+        cur['build.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\bin';
+    
+        cur['classpath.property'] = '${build}/';
+    
+        cur['dist.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\dist';
+    
+        cur['docs.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\docs';
+    
+        cur['eclipse.pdebuild.home'] = '/E:/Software/eclipse/plugins/org.eclipse.pde.build_3.9.0.v20130725-2123/./';
+    
+        cur['eclipse.pdebuild.scripts'] = '/E:/Software/eclipse/plugins/org.eclipse.pde.build_3.9.0.v20130725-2123/scripts/';
+    
+        cur['eclipse.pdebuild.templates'] = '/E:/Software/eclipse/plugins/org.eclipse.pde.build_3.9.0.v20130725-2123/templates/';
+    
+        cur['file.encoding'] = 'Cp1252';
+    
+        cur['file.encoding.pkg'] = 'sun.io';
+    
+        cur['file.separator'] = '\\';
+    
+        cur['java.awt.graphicsenv'] = 'sun.awt.Win32GraphicsEnvironment';
+    
+        cur['java.awt.printerjob'] = 'sun.awt.windows.WPrinterJob';
+    
+        cur['java.class.path'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\lib\\junit-4.11.jar;C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\bin;E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant-launcher.jar;E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant.jar;E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant-junit.jar;E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant-junit4.jar';
+    
+        cur['java.class.version'] = '51.0';
+    
+        cur['java.endorsed.dirs'] = 'C:\\Program Files\\Java\\jre7\\lib\\endorsed';
+    
+        cur['java.ext.dirs'] = 'C:\\Program Files\\Java\\jre7\\lib\\ext;C:\\WINDOWS\\Sun\\Java\\lib\\ext';
+    
+        cur['java.home'] = 'C:\\Program Files\\Java\\jre7';
+    
+        cur['java.io.tmpdir'] = 'C:\\Users\\Tarani\\AppData\\Local\\Temp\\';
+    
+        cur['java.library.path'] = 'C:\\Program Files\\Java\\jre7\\bin;C:\\WINDOWS\\Sun\\Java\\bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Sony\\VAIO Improvement\\;C:\\Program Files (x86)\\Sony\\VAIO Startup Setting Tool\\C:\\Program Files (x86)\\Java\\jdk1.7.0_55\\bin;.;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Sony\\VAIO Improvement\\;C:\\Program Files (x86)\\Sony\\VAIO Startup Setting Tool\\C:\\Program Files (x86)\\Java\\jdk1.7.0_55\\bin;.;;C:\\Program Files (x86)\\Java\\jdk1.7.0_55\\bin;.;;.';
+    
+        cur['java.runtime.name'] = 'Java(TM) SE Runtime Environment';
+    
+        cur['java.runtime.version'] = '1.7.0_09-b05';
+    
+        cur['java.specification.name'] = 'Java Platform API Specification';
+    
+        cur['java.specification.vendor'] = 'Oracle Corporation';
+    
+        cur['java.specification.version'] = '1.7';
+    
+        cur['java.vendor'] = 'Oracle Corporation';
+    
+        cur['java.vendor.url'] = 'http://java.oracle.com/';
+    
+        cur['java.vendor.url.bug'] = 'http://bugreport.sun.com/bugreport/';
+    
+        cur['java.version'] = '1.7.0_09';
+    
+        cur['java.vm.info'] = 'mixed mode';
+    
+        cur['java.vm.name'] = 'Java HotSpot(TM) 64-Bit Server VM';
+    
+        cur['java.vm.specification.name'] = 'Java Virtual Machine Specification';
+    
+        cur['java.vm.specification.vendor'] = 'Oracle Corporation';
+    
+        cur['java.vm.specification.version'] = '1.7';
+    
+        cur['java.vm.vendor'] = 'Oracle Corporation';
+    
+        cur['java.vm.version'] = '23.5-b02';
+    
+        cur['lib.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\lib';
+    
+        cur['line.separator'] = '\r\n';
+    
+        cur['os.arch'] = 'amd64';
+    
+        cur['os.name'] = 'Windows 8';
+    
+        cur['os.version'] = '6.2';
+    
+        cur['path.separator'] = ';';
+    
+        cur['src.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\src';
+    
+        cur['sun.arch.data.model'] = '64';
+    
+        cur['sun.boot.class.path'] = 'C:\\Program Files\\Java\\jre7\\lib\\resources.jar;C:\\Program Files\\Java\\jre7\\lib\\rt.jar;C:\\Program Files\\Java\\jre7\\lib\\sunrsasign.jar;C:\\Program Files\\Java\\jre7\\lib\\jsse.jar;C:\\Program Files\\Java\\jre7\\lib\\jce.jar;C:\\Program Files\\Java\\jre7\\lib\\charsets.jar;C:\\Program Files\\Java\\jre7\\lib\\jfr.jar;C:\\Program Files\\Java\\jre7\\classes';
+    
+        cur['sun.boot.library.path'] = 'C:\\Program Files\\Java\\jre7\\bin';
+    
+        cur['sun.cpu.endian'] = 'little';
+    
+        cur['sun.cpu.isalist'] = 'amd64';
+    
+        cur['sun.desktop'] = 'windows';
+    
+        cur['sun.io.unicode.encoding'] = 'UnicodeLittle';
+    
+        cur['sun.java.command'] = 'org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.iit.cs445.cm.test.DateUtilTest filtertrace=true haltOnError=false haltOnFailure=true formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\testreport\\TEST-edu.iit.cs445.cm.test.DateUtilTest.xml crashfile=C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\junitvmwatcher676500772122741377.properties propsfile=C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\junit4364053041446434317.properties';
+    
+        cur['sun.java.launcher'] = 'SUN_STANDARD';
+    
+        cur['sun.jnu.encoding'] = 'Cp1252';
+    
+        cur['sun.management.compiler'] = 'HotSpot 64-Bit Tiered Compilers';
+    
+        cur['sun.os.patch.level'] = '';
+    
+        cur['test.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\src';
+    
+        cur['test.report.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\testreport';
+    
+        cur['user.country'] = 'US';
+    
+        cur['user.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement';
+    
+        cur['user.home'] = 'C:\\Users\\Tarani';
+    
+        cur['user.language'] = 'en';
+    
+        cur['user.name'] = 'Tarani';
+    
+        cur['user.script'] = '';
+    
+        cur['user.timezone'] = '';
+    
+        cur['user.variant'] = '';
+    
+    cur = TestCases['edu.iit.cs445.cm.test.NameTest'] = new Array();
+    
+        cur['ant.core.lib'] = 'E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant.jar';
+    
+        cur['ant.file'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\build.xml';
+    
+        cur['ant.file.CMS'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\build.xml';
+    
+        cur['ant.file.type.CMS'] = 'file';
+    
+        cur['ant.home'] = 'E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445';
+    
+        cur['ant.java.version'] = '1.7';
+    
+        cur['ant.library.dir'] = 'E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib';
+    
+        cur['ant.project.default-target'] = 'run';
+    
+        cur['ant.project.invoked-targets'] = 'test';
+    
+        cur['ant.project.name'] = 'CMS';
+    
+        cur['ant.version'] = 'Apache Ant(TM) version 1.9.2 compiled on July 8 2013';
+    
+        cur['awt.toolkit'] = 'sun.awt.windows.WToolkit';
+    
+        cur['basedir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement';
+    
+        cur['build.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\bin';
+    
+        cur['classpath.property'] = '${build}/';
+    
+        cur['dist.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\dist';
+    
+        cur['docs.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\docs';
+    
+        cur['eclipse.pdebuild.home'] = '/E:/Software/eclipse/plugins/org.eclipse.pde.build_3.9.0.v20130725-2123/./';
+    
+        cur['eclipse.pdebuild.scripts'] = '/E:/Software/eclipse/plugins/org.eclipse.pde.build_3.9.0.v20130725-2123/scripts/';
+    
+        cur['eclipse.pdebuild.templates'] = '/E:/Software/eclipse/plugins/org.eclipse.pde.build_3.9.0.v20130725-2123/templates/';
+    
+        cur['file.encoding'] = 'Cp1252';
+    
+        cur['file.encoding.pkg'] = 'sun.io';
+    
+        cur['file.separator'] = '\\';
+    
+        cur['java.awt.graphicsenv'] = 'sun.awt.Win32GraphicsEnvironment';
+    
+        cur['java.awt.printerjob'] = 'sun.awt.windows.WPrinterJob';
+    
+        cur['java.class.path'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\lib\\junit-4.11.jar;C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\bin;E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant-launcher.jar;E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant.jar;E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant-junit.jar;E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant-junit4.jar';
+    
+        cur['java.class.version'] = '51.0';
+    
+        cur['java.endorsed.dirs'] = 'C:\\Program Files\\Java\\jre7\\lib\\endorsed';
+    
+        cur['java.ext.dirs'] = 'C:\\Program Files\\Java\\jre7\\lib\\ext;C:\\WINDOWS\\Sun\\Java\\lib\\ext';
+    
+        cur['java.home'] = 'C:\\Program Files\\Java\\jre7';
+    
+        cur['java.io.tmpdir'] = 'C:\\Users\\Tarani\\AppData\\Local\\Temp\\';
+    
+        cur['java.library.path'] = 'C:\\Program Files\\Java\\jre7\\bin;C:\\WINDOWS\\Sun\\Java\\bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Sony\\VAIO Improvement\\;C:\\Program Files (x86)\\Sony\\VAIO Startup Setting Tool\\C:\\Program Files (x86)\\Java\\jdk1.7.0_55\\bin;.;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Sony\\VAIO Improvement\\;C:\\Program Files (x86)\\Sony\\VAIO Startup Setting Tool\\C:\\Program Files (x86)\\Java\\jdk1.7.0_55\\bin;.;;C:\\Program Files (x86)\\Java\\jdk1.7.0_55\\bin;.;;.';
+    
+        cur['java.runtime.name'] = 'Java(TM) SE Runtime Environment';
+    
+        cur['java.runtime.version'] = '1.7.0_09-b05';
+    
+        cur['java.specification.name'] = 'Java Platform API Specification';
+    
+        cur['java.specification.vendor'] = 'Oracle Corporation';
+    
+        cur['java.specification.version'] = '1.7';
+    
+        cur['java.vendor'] = 'Oracle Corporation';
+    
+        cur['java.vendor.url'] = 'http://java.oracle.com/';
+    
+        cur['java.vendor.url.bug'] = 'http://bugreport.sun.com/bugreport/';
+    
+        cur['java.version'] = '1.7.0_09';
+    
+        cur['java.vm.info'] = 'mixed mode';
+    
+        cur['java.vm.name'] = 'Java HotSpot(TM) 64-Bit Server VM';
+    
+        cur['java.vm.specification.name'] = 'Java Virtual Machine Specification';
+    
+        cur['java.vm.specification.vendor'] = 'Oracle Corporation';
+    
+        cur['java.vm.specification.version'] = '1.7';
+    
+        cur['java.vm.vendor'] = 'Oracle Corporation';
+    
+        cur['java.vm.version'] = '23.5-b02';
+    
+        cur['lib.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\lib';
+    
+        cur['line.separator'] = '\r\n';
+    
+        cur['os.arch'] = 'amd64';
+    
+        cur['os.name'] = 'Windows 8';
+    
+        cur['os.version'] = '6.2';
+    
+        cur['path.separator'] = ';';
+    
+        cur['src.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\src';
+    
+        cur['sun.arch.data.model'] = '64';
+    
+        cur['sun.boot.class.path'] = 'C:\\Program Files\\Java\\jre7\\lib\\resources.jar;C:\\Program Files\\Java\\jre7\\lib\\rt.jar;C:\\Program Files\\Java\\jre7\\lib\\sunrsasign.jar;C:\\Program Files\\Java\\jre7\\lib\\jsse.jar;C:\\Program Files\\Java\\jre7\\lib\\jce.jar;C:\\Program Files\\Java\\jre7\\lib\\charsets.jar;C:\\Program Files\\Java\\jre7\\lib\\jfr.jar;C:\\Program Files\\Java\\jre7\\classes';
+    
+        cur['sun.boot.library.path'] = 'C:\\Program Files\\Java\\jre7\\bin';
+    
+        cur['sun.cpu.endian'] = 'little';
+    
+        cur['sun.cpu.isalist'] = 'amd64';
+    
+        cur['sun.desktop'] = 'windows';
+    
+        cur['sun.io.unicode.encoding'] = 'UnicodeLittle';
+    
+        cur['sun.java.command'] = 'org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.iit.cs445.cm.test.NameTest filtertrace=true haltOnError=false haltOnFailure=true formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\testreport\\TEST-edu.iit.cs445.cm.test.NameTest.xml crashfile=C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\junitvmwatcher115242046785607367.properties propsfile=C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\junit3145927114220640943.properties';
+    
+        cur['sun.java.launcher'] = 'SUN_STANDARD';
+    
+        cur['sun.jnu.encoding'] = 'Cp1252';
+    
+        cur['sun.management.compiler'] = 'HotSpot 64-Bit Tiered Compilers';
+    
+        cur['sun.os.patch.level'] = '';
+    
+        cur['test.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\src';
+    
+        cur['test.report.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\testreport';
+    
+        cur['user.country'] = 'US';
+    
+        cur['user.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement';
+    
+        cur['user.home'] = 'C:\\Users\\Tarani';
+    
+        cur['user.language'] = 'en';
+    
+        cur['user.name'] = 'Tarani';
+    
+        cur['user.script'] = '';
+    
+        cur['user.timezone'] = '';
+    
+        cur['user.variant'] = '';
+    
+    cur = TestCases['edu.iit.cs445.cm.test.XMLProcessorTest'] = new Array();
+    
+        cur['ant.core.lib'] = 'E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant.jar';
+    
+        cur['ant.file'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\build.xml';
+    
+        cur['ant.file.CMS'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\build.xml';
+    
+        cur['ant.file.type.CMS'] = 'file';
+    
+        cur['ant.home'] = 'E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445';
+    
+        cur['ant.java.version'] = '1.7';
+    
+        cur['ant.library.dir'] = 'E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib';
+    
+        cur['ant.project.default-target'] = 'run';
+    
+        cur['ant.project.invoked-targets'] = 'test';
+    
+        cur['ant.project.name'] = 'CMS';
+    
+        cur['ant.version'] = 'Apache Ant(TM) version 1.9.2 compiled on July 8 2013';
+    
+        cur['awt.toolkit'] = 'sun.awt.windows.WToolkit';
+    
+        cur['basedir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement';
+    
+        cur['build.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\bin';
+    
+        cur['classpath.property'] = '${build}/';
+    
+        cur['dist.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\dist';
+    
+        cur['docs.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\docs';
+    
+        cur['eclipse.pdebuild.home'] = '/E:/Software/eclipse/plugins/org.eclipse.pde.build_3.9.0.v20130725-2123/./';
+    
+        cur['eclipse.pdebuild.scripts'] = '/E:/Software/eclipse/plugins/org.eclipse.pde.build_3.9.0.v20130725-2123/scripts/';
+    
+        cur['eclipse.pdebuild.templates'] = '/E:/Software/eclipse/plugins/org.eclipse.pde.build_3.9.0.v20130725-2123/templates/';
+    
+        cur['file.encoding'] = 'Cp1252';
+    
+        cur['file.encoding.pkg'] = 'sun.io';
+    
+        cur['file.separator'] = '\\';
+    
+        cur['java.awt.graphicsenv'] = 'sun.awt.Win32GraphicsEnvironment';
+    
+        cur['java.awt.printerjob'] = 'sun.awt.windows.WPrinterJob';
+    
+        cur['java.class.path'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\lib\\junit-4.11.jar;C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\bin;E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant-launcher.jar;E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant.jar;E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant-junit.jar;E:\\Software\\eclipse\\plugins\\org.apache.ant_1.9.2.v201307241445\\lib\\ant-junit4.jar';
+    
+        cur['java.class.version'] = '51.0';
+    
+        cur['java.endorsed.dirs'] = 'C:\\Program Files\\Java\\jre7\\lib\\endorsed';
+    
+        cur['java.ext.dirs'] = 'C:\\Program Files\\Java\\jre7\\lib\\ext;C:\\WINDOWS\\Sun\\Java\\lib\\ext';
+    
+        cur['java.home'] = 'C:\\Program Files\\Java\\jre7';
+    
+        cur['java.io.tmpdir'] = 'C:\\Users\\Tarani\\AppData\\Local\\Temp\\';
+    
+        cur['java.library.path'] = 'C:\\Program Files\\Java\\jre7\\bin;C:\\WINDOWS\\Sun\\Java\\bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Sony\\VAIO Improvement\\;C:\\Program Files (x86)\\Sony\\VAIO Startup Setting Tool\\C:\\Program Files (x86)\\Java\\jdk1.7.0_55\\bin;.;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Sony\\VAIO Improvement\\;C:\\Program Files (x86)\\Sony\\VAIO Startup Setting Tool\\C:\\Program Files (x86)\\Java\\jdk1.7.0_55\\bin;.;;C:\\Program Files (x86)\\Java\\jdk1.7.0_55\\bin;.;;.';
+    
+        cur['java.runtime.name'] = 'Java(TM) SE Runtime Environment';
+    
+        cur['java.runtime.version'] = '1.7.0_09-b05';
+    
+        cur['java.specification.name'] = 'Java Platform API Specification';
+    
+        cur['java.specification.vendor'] = 'Oracle Corporation';
+    
+        cur['java.specification.version'] = '1.7';
+    
+        cur['java.vendor'] = 'Oracle Corporation';
+    
+        cur['java.vendor.url'] = 'http://java.oracle.com/';
+    
+        cur['java.vendor.url.bug'] = 'http://bugreport.sun.com/bugreport/';
+    
+        cur['java.version'] = '1.7.0_09';
+    
+        cur['java.vm.info'] = 'mixed mode';
+    
+        cur['java.vm.name'] = 'Java HotSpot(TM) 64-Bit Server VM';
+    
+        cur['java.vm.specification.name'] = 'Java Virtual Machine Specification';
+    
+        cur['java.vm.specification.vendor'] = 'Oracle Corporation';
+    
+        cur['java.vm.specification.version'] = '1.7';
+    
+        cur['java.vm.vendor'] = 'Oracle Corporation';
+    
+        cur['java.vm.version'] = '23.5-b02';
+    
+        cur['lib.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\lib';
+    
+        cur['line.separator'] = '\r\n';
+    
+        cur['os.arch'] = 'amd64';
+    
+        cur['os.name'] = 'Windows 8';
+    
+        cur['os.version'] = '6.2';
+    
+        cur['path.separator'] = ';';
+    
+        cur['src.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\src';
+    
+        cur['sun.arch.data.model'] = '64';
+    
+        cur['sun.boot.class.path'] = 'C:\\Program Files\\Java\\jre7\\lib\\resources.jar;C:\\Program Files\\Java\\jre7\\lib\\rt.jar;C:\\Program Files\\Java\\jre7\\lib\\sunrsasign.jar;C:\\Program Files\\Java\\jre7\\lib\\jsse.jar;C:\\Program Files\\Java\\jre7\\lib\\jce.jar;C:\\Program Files\\Java\\jre7\\lib\\charsets.jar;C:\\Program Files\\Java\\jre7\\lib\\jfr.jar;C:\\Program Files\\Java\\jre7\\classes';
+    
+        cur['sun.boot.library.path'] = 'C:\\Program Files\\Java\\jre7\\bin';
+    
+        cur['sun.cpu.endian'] = 'little';
+    
+        cur['sun.cpu.isalist'] = 'amd64';
+    
+        cur['sun.desktop'] = 'windows';
+    
+        cur['sun.io.unicode.encoding'] = 'UnicodeLittle';
+    
+        cur['sun.java.command'] = 'org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.iit.cs445.cm.test.XMLProcessorTest filtertrace=true haltOnError=false haltOnFailure=true formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\testreport\\TEST-edu.iit.cs445.cm.test.XMLProcessorTest.xml crashfile=C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\junitvmwatcher1690333462135601929.properties propsfile=C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\junit80144082629034833.properties';
+    
+        cur['sun.java.launcher'] = 'SUN_STANDARD';
+    
+        cur['sun.jnu.encoding'] = 'Cp1252';
+    
+        cur['sun.management.compiler'] = 'HotSpot 64-Bit Tiered Compilers';
+    
+        cur['sun.os.patch.level'] = '';
+    
+        cur['test.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\src';
+    
+        cur['test.report.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement\\testreport';
+    
+        cur['user.country'] = 'US';
+    
+        cur['user.dir'] = 'C:\\Users\\Tarani\\git\\cs445\\ContactManagement';
+    
+        cur['user.home'] = 'C:\\Users\\Tarani';
+    
+        cur['user.language'] = 'en';
+    
+        cur['user.name'] = 'Tarani';
+    
+        cur['user.script'] = '';
+    
+        cur['user.timezone'] = '';
+    
+        cur['user.variant'] = '';
+    </script><script type="text/javascript" language="JavaScript">
+        function displayProperties (name) {
+          var win = window.open('','JUnitSystemProperties','scrollbars=1,resizable=1');
+          var doc = win.document;
+          doc.open();
+          doc.write("<html><head><title>Properties of " + name + "</title>");
+          doc.write("<style>")
+          doc.write("body {font:normal 68% verdana,arial,helvetica; color:#000000; }");
+          doc.write("table tr td, table tr th { font-size: 68%; }");
+          doc.write("table.properties { border-collapse:collapse; border-left:solid 1 #cccccc; border-top:solid 1 #cccccc; padding:5px; }");
+          doc.write("table.properties th { text-align:left; border-right:solid 1 #cccccc; border-bottom:solid 1 #cccccc; background-color:#eeeeee; }");
+          doc.write("table.properties td { font:normal; text-align:left; border-right:solid 1 #cccccc; border-bottom:solid 1 #cccccc; background-color:#fffffff; }");
+          doc.write("h3 { margin-bottom: 0.5em; font: bold 115% verdana,arial,helvetica }");
+          doc.write("</style>");
+          doc.write("</head><body>");
+          doc.write("<h3>Properties of " + name + "</h3>");
+          doc.write("<div align=\"right\"><a href=\"javascript:window.close();\">Close</a></div>");
+          doc.write("<table class='properties'>");
+          doc.write("<tr><th>Name</th><th>Value</th></tr>");
+          for (prop in TestCases[name]) {
+            doc.write("<tr><th>" + prop + "</th><td>" + TestCases[name][prop] + "</td></tr>");
+          }
+          doc.write("</table>");
+          doc.write("</body></html>");
+          doc.close();
+          win.focus();
+        }
+      
+      </script>
+</head>
+<body>
+<a name="top"></a>
+<h1>Unit Test Results.</h1>
+<table width="100%">
+<tr>
+<td align="left"></td><td align="right">Designed for use with <a href="http://www.junit.org">JUnit</a> and <a href="http://ant.apache.org/ant">Ant</a>.</td>
+</tr>
+</table>
+<hr size="1">
+<h2>Summary</h2>
+<table class="details" border="0" cellpadding="5" cellspacing="2" width="95%">
+<tr valign="top">
+<th>Tests</th><th>Failures</th><th>Errors</th><th>Skipped</th><th>Success rate</th><th>Time</th>
+</tr>
+<tr valign="top" class="">
+<td>51</td><td>0</td><td>0</td><td>0</td><td>100.00%</td><td>1.956</td>
+</tr>
+</table>
+<table border="0" width="95%">
+<tr>
+<td style="text-align: justify;">
+        Note: <i>failures</i> are anticipated and checked for with assertions while <i>errors</i> are unanticipated.
+        </td>
+</tr>
+</table>
+<hr size="1" width="95%" align="left">
+<h2>Packages</h2>
+        Note: package statistics are not computed recursively, they only sum up all of its testsuites numbers.
+        <table class="details" border="0" cellpadding="5" cellspacing="2" width="95%">
+<tr valign="top">
+<th width="80%">Name</th><th>Tests</th><th>Errors</th><th>Failures</th><th>Skipped</th><th nowrap>Time(s)</th><th nowrap>Time Stamp</th><th>Host</th>
+</tr>
+<tr valign="top" class="">
+<td><a href="#edu.iit.cs445.cm.test">edu.iit.cs445.cm.test</a></td><td>51</td><td>0</td><td>0</td><td>0</td><td>1.956</td><td>2014-05-27T00:47:23</td><td>VAIO</td>
+</tr>
+</table>
+<hr size="1" width="95%" align="left">
+<a name="edu.iit.cs445.cm.test"></a>
+<h3>Package edu.iit.cs445.cm.test</h3>
+<table class="details" border="0" cellpadding="5" cellspacing="2" width="95%">
+<tr valign="top">
+<th width="80%">Name</th><th>Tests</th><th>Errors</th><th>Failures</th><th>Skipped</th><th nowrap>Time(s)</th><th nowrap>Time Stamp</th><th>Host</th>
+</tr>
+<tr valign="top" class="">
+<td><a href="#AddressTest">AddressTest</a></td><td>6</td><td>0</td><td>0</td><td>0</td><td>0.225</td><td>2014-05-27T00:47:23</td><td>VAIO</td>
+</tr>
+<tr valign="top" class="">
+<td><a href="#ContactMgmtSystemTest">ContactMgmtSystemTest</a></td><td>19</td><td>0</td><td>0</td><td>0</td><td>0.726</td><td>2014-05-27T00:47:24</td><td>VAIO</td>
+</tr>
+<tr valign="top" class="">
+<td><a href="#ContactTest">ContactTest</a></td><td>7</td><td>0</td><td>0</td><td>0</td><td>0.315</td><td>2014-05-27T00:47:25</td><td>VAIO</td>
+</tr>
+<tr valign="top" class="">
+<td><a href="#DateUtilTest">DateUtilTest</a></td><td>7</td><td>0</td><td>0</td><td>0</td><td>0.055</td><td>2014-05-27T00:47:26</td><td>VAIO</td>
+</tr>
+<tr valign="top" class="">
+<td><a href="#NameTest">NameTest</a></td><td>5</td><td>0</td><td>0</td><td>0</td><td>0.270</td><td>2014-05-27T00:47:27</td><td>VAIO</td>
+</tr>
+<tr valign="top" class="">
+<td><a href="#XMLProcessorTest">XMLProcessorTest</a></td><td>7</td><td>0</td><td>0</td><td>0</td><td>0.365</td><td>2014-05-27T00:47:27</td><td>VAIO</td>
+</tr>
+</table>
+<a href="#top">Back to top</a>
+<p></p>
+<p></p>
+<hr size="1" width="95%" align="left">
+<a name="AddressTest"></a>
+<h3>TestCase AddressTest</h3>
+<table class="details" border="0" cellpadding="5" cellspacing="2" width="95%">
+<tr valign="top">
+<th>Name</th><th>Status</th><th width="80%">Type</th><th nowrap>Time(s)</th>
+</tr>
+<tr valign="top" class="">
+<td>testZip</td><td>Success</td><td></td><td>0.055</td>
+</tr>
+<tr valign="top" class="">
+<td>testPobox</td><td>Success</td><td></td><td>0.030</td>
+</tr>
+<tr valign="top" class="">
+<td>testState</td><td>Success</td><td></td><td>0.020</td>
+</tr>
+<tr valign="top" class="">
+<td>testCity</td><td>Success</td><td></td><td>0.025</td>
+</tr>
+<tr valign="top" class="">
+<td>testCountry</td><td>Success</td><td></td><td>0.025</td>
+</tr>
+<tr valign="top" class="">
+<td>testStreet</td><td>Success</td><td></td><td>0.020</td>
+</tr>
+</table>
+<div class="Properties">
+<a href="javascript:displayProperties('edu.iit.cs445.cm.test.AddressTest');">
+                    Properties &raquo;
+                </a>
+</div>
+<p></p>
+<a href="#top">Back to top</a><a name="ContactMgmtSystemTest"></a>
+<h3>TestCase ContactMgmtSystemTest</h3>
+<table class="details" border="0" cellpadding="5" cellspacing="2" width="95%">
+<tr valign="top">
+<th>Name</th><th>Status</th><th width="80%">Type</th><th nowrap>Time(s)</th>
+</tr>
+<tr valign="top" class="">
+<td>testNoCommand</td><td>Success</td><td></td><td>0.061</td>
+</tr>
+<tr valign="top" class="">
+<td>testDeleteInvalidComamnd</td><td>Success</td><td></td><td>0.030</td>
+</tr>
+<tr valign="top" class="">
+<td>testAdd</td><td>Success</td><td></td><td>0.035</td>
+</tr>
+<tr valign="top" class="">
+<td>testEdit</td><td>Success</td><td></td><td>0.060</td>
+</tr>
+<tr valign="top" class="">
+<td>testLoad</td><td>Success</td><td></td><td>0.055</td>
+</tr>
+<tr valign="top" class="">
+<td>testAddInvalid</td><td>Success</td><td></td><td>0.030</td>
+</tr>
+<tr valign="top" class="">
+<td>testDeleteInvalidContactId</td><td>Success</td><td></td><td>0.040</td>
+</tr>
+<tr valign="top" class="">
+<td>testEditInvalidCommand</td><td>Success</td><td></td><td>0.030</td>
+</tr>
+<tr valign="top" class="">
+<td>testInvalidCommand</td><td>Success</td><td></td><td>0.030</td>
+</tr>
+<tr valign="top" class="">
+<td>testViewContactInvalidContactId</td><td>Success</td><td></td><td>0.030</td>
+</tr>
+<tr valign="top" class="">
+<td>testSearchInvalidCommand</td><td>Success</td><td></td><td>0.025</td>
+</tr>
+<tr valign="top" class="">
+<td>testListAll</td><td>Success</td><td></td><td>0.040</td>
+</tr>
+<tr valign="top" class="">
+<td>testViewContact</td><td>Success</td><td></td><td>0.045</td>
+</tr>
+<tr valign="top" class="">
+<td>testSearchInvalidContactId</td><td>Success</td><td></td><td>0.030</td>
+</tr>
+<tr valign="top" class="">
+<td>testEditInvalidContactid</td><td>Success</td><td></td><td>0.030</td>
+</tr>
+<tr valign="top" class="">
+<td>testLoadInvalid</td><td>Success</td><td></td><td>0.025</td>
+</tr>
+<tr valign="top" class="">
+<td>testDelete</td><td>Success</td><td></td><td>0.020</td>
+</tr>
+<tr valign="top" class="">
+<td>testSearch</td><td>Success</td><td></td><td>0.020</td>
+</tr>
+<tr valign="top" class="">
+<td>testViewContactInvalidCommand</td><td>Success</td><td></td><td>0.030</td>
+</tr>
+</table>
+<div class="Properties">
+<a href="javascript:displayProperties('edu.iit.cs445.cm.test.ContactMgmtSystemTest');">
+                    Properties &raquo;
+                </a>
+</div>
+<p></p>
+<a href="#top">Back to top</a><a name="ContactTest"></a>
+<h3>TestCase ContactTest</h3>
+<table class="details" border="0" cellpadding="5" cellspacing="2" width="95%">
+<tr valign="top">
+<th>Name</th><th>Status</th><th width="80%">Type</th><th nowrap>Time(s)</th>
+</tr>
+<tr valign="top" class="">
+<td>testAddress</td><td>Success</td><td></td><td>0.060</td>
+</tr>
+<tr valign="top" class="">
+<td>testDOB</td><td>Success</td><td></td><td>0.040</td>
+</tr>
+<tr valign="top" class="">
+<td>testFax</td><td>Success</td><td></td><td>0.030</td>
+</tr>
+<tr valign="top" class="">
+<td>testEmail</td><td>Success</td><td></td><td>0.035</td>
+</tr>
+<tr valign="top" class="">
+<td>testPhone</td><td>Success</td><td></td><td>0.035</td>
+</tr>
+<tr valign="top" class="">
+<td>testName</td><td>Success</td><td></td><td>0.035</td>
+</tr>
+<tr valign="top" class="">
+<td>testNote</td><td>Success</td><td></td><td>0.035</td>
+</tr>
+</table>
+<div class="Properties">
+<a href="javascript:displayProperties('edu.iit.cs445.cm.test.ContactTest');">
+                    Properties &raquo;
+                </a>
+</div>
+<p></p>
+<a href="#top">Back to top</a><a name="DateUtilTest"></a>
+<h3>TestCase DateUtilTest</h3>
+<table class="details" border="0" cellpadding="5" cellspacing="2" width="95%">
+<tr valign="top">
+<th>Name</th><th>Status</th><th width="80%">Type</th><th nowrap>Time(s)</th>
+</tr>
+<tr valign="top" class="">
+<td>testHasBirthdayInNextSevenDaysWithLessthanToday</td><td>Success</td><td></td><td>0.000</td>
+</tr>
+<tr valign="top" class="">
+<td>testHasBirthdayInNextSevenDaysWithSeventhDay</td><td>Success</td><td></td><td>0.000</td>
+</tr>
+<tr valign="top" class="">
+<td>testHasBirthdayInNextSevenDaysWithOverSevenDays</td><td>Success</td><td></td><td>0.000</td>
+</tr>
+<tr valign="top" class="">
+<td>testConvertToDate</td><td>Success</td><td></td><td>0.000</td>
+</tr>
+<tr valign="top" class="">
+<td>testConvertToString</td><td>Success</td><td></td><td>0.000</td>
+</tr>
+<tr valign="top" class="">
+<td>testHasBirthdayInNextSevenDaysWithNull</td><td>Success</td><td></td><td>0.000</td>
+</tr>
+<tr valign="top" class="">
+<td>testHasBirthdayInNextSevenDaysWithToday</td><td>Success</td><td></td><td>0.000</td>
+</tr>
+</table>
+<div class="Properties">
+<a href="javascript:displayProperties('edu.iit.cs445.cm.test.DateUtilTest');">
+                    Properties &raquo;
+                </a>
+</div>
+<p></p>
+<a href="#top">Back to top</a><a name="NameTest"></a>
+<h3>TestCase NameTest</h3>
+<table class="details" border="0" cellpadding="5" cellspacing="2" width="95%">
+<tr valign="top">
+<th>Name</th><th>Status</th><th width="80%">Type</th><th nowrap>Time(s)</th>
+</tr>
+<tr valign="top" class="">
+<td>testMiddleName</td><td>Success</td><td></td><td>0.060</td>
+</tr>
+<tr valign="top" class="">
+<td>testSufix</td><td>Success</td><td></td><td>0.040</td>
+</tr>
+<tr valign="top" class="">
+<td>testLastName</td><td>Success</td><td></td><td>0.040</td>
+</tr>
+<tr valign="top" class="">
+<td>testFirstName</td><td>Success</td><td></td><td>0.030</td>
+</tr>
+<tr valign="top" class="">
+<td>testPrefix</td><td>Success</td><td></td><td>0.040</td>
+</tr>
+</table>
+<div class="Properties">
+<a href="javascript:displayProperties('edu.iit.cs445.cm.test.NameTest');">
+                    Properties &raquo;
+                </a>
+</div>
+<p></p>
+<a href="#top">Back to top</a><a name="XMLProcessorTest"></a>
+<h3>TestCase XMLProcessorTest</h3>
+<table class="details" border="0" cellpadding="5" cellspacing="2" width="95%">
+<tr valign="top">
+<th>Name</th><th>Status</th><th width="80%">Type</th><th nowrap>Time(s)</th>
+</tr>
+<tr valign="top" class="">
+<td>testSearchValidContact</td><td>Success</td><td></td><td>0.065</td>
+</tr>
+<tr valign="top" class="">
+<td>testEdit</td><td>Success</td><td></td><td>0.085</td>
+</tr>
+<tr valign="top" class="">
+<td>testLoad</td><td>Success</td><td></td><td>0.030</td>
+</tr>
+<tr valign="top" class="">
+<td>testSearchInvalidContact</td><td>Success</td><td></td><td>0.040</td>
+</tr>
+<tr valign="top" class="">
+<td>testListAll</td><td>Success</td><td></td><td>0.035</td>
+</tr>
+<tr valign="top" class="">
+<td>testDeleteSuccess</td><td>Success</td><td></td><td>0.035</td>
+</tr>
+<tr valign="top" class="">
+<td>testDeleteFail</td><td>Success</td><td></td><td>0.020</td>
+</tr>
+</table>
+<div class="Properties">
+<a href="javascript:displayProperties('edu.iit.cs445.cm.test.XMLProcessorTest');">
+                    Properties &raquo;
+                </a>
+</div>
+<p></p>
+<a href="#top">Back to top</a>
+</body>
+</html>
